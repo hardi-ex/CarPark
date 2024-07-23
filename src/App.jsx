@@ -3,8 +3,17 @@ import HomePage from "./pages/HomePage/HomePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import Layout from "./components/Layout/Layout";
+import { getAdverts } from "./redux/catalog/operations";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAdverts());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

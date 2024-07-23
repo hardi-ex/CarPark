@@ -1,23 +1,16 @@
-import ContactList from "../ContactList/ContactList";
+import AdvertList from "../AdvertList/AdvertList";
 import SearchBox from "../SearchBox/SearchBox";
-import { getAdverts } from "../../redux/catalog/operations";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import css from "./Catalog.module.css";
+import { useSelector } from "react-redux";
 import { selectAdvertsItems } from "../../redux/catalog/selectors";
 
 export const Catalog = () => {
-  const dispatch = useDispatch();
   const adverts = useSelector(selectAdvertsItems);
-
-  useEffect(() => {
-    dispatch(getAdverts());
-  }, [dispatch]);
-
   return (
-    <>
+    <div className={css.catalog}>
       <SearchBox />
-      <ContactList adverts={adverts} />
-    </>
+      <AdvertList adverts={adverts} />
+    </div>
   );
 };
 export default Catalog;
