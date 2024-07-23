@@ -34,69 +34,106 @@ const initialValues = {
   mileageTo: "",
 };
 
+const mileageOptions = Array.from({ length: 11 }, (_, i) => 3000 + i * 500);
+
 const SearchBox = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (values) => {
-    for (let key in values) {
-      dispatch(changeFilter({ name: key, value: values[key] }));
-    }
+    Object.entries(values).forEach(([key, value]) => {
+      dispatch(changeFilter({ name: key, value }));
+    });
+  };
+
+  const onReset = (resetForm) => {
+    resetForm();
+    Object.entries(initialValues).forEach(([key]) => {
+      dispatch(changeFilter({ name: key, value: initialValues[key] }));
+    });
   };
 
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
-      <Form className={css.searchForm}>
-        <div className={css.formGroup}>
-          <label htmlFor="carBrand">Car brand</label>
-          <div className={css.inputWrapper}>
-            <Field
-              as="select"
-              id="carBrand"
-              name="carBrand"
-              className={css.input}
-            >
-              <option value="">Select a brand</option>
-              {carMakes.map((make) => (
-                <option key={make} value={make}>
-                  {make}
-                </option>
-              ))}
-            </Field>
-            <span className={css.dropdownArrow}>&#9662;</span>
-          </div>
-        </div>
-        <div className={css.formGroup}>
-          <label htmlFor="price">Price / 1 hour</label>
-          <div className={css.inputWrapper}>
-            <Field as="select" id="price" name="price" className={css.input}>
-              <option value="">Select a price range</option>
-              {Array.from({ length: 50 }, (_, i) => (i + 1) * 10).map(
-                (price) => (
-                  <option key={price} value={price}>
-                    Up to ${price}
+      {({ resetForm }) => (
+        <Form className={css.searchForm}>
+          <div className={css.formGroup}>
+            <label htmlFor="carBrand">Car brand</label>
+            <div className={css.inputWrapper}>
+              <Field
+                as="select"
+                id="carBrand"
+                name="carBrand"
+                className={css.input}
+              >
+                <option value="">Select a brand</option>
+                {carMakes.map((make) => (
+                  <option key={make} value={make}>
+                    {make}
                   </option>
-                )
-              )}
-            </Field>
-            <span className={css.dropdownArrow}>&#9662;</span>
+                ))}
+              </Field>
+            </div>
           </div>
-        </div>
-        <div className={css.formGroup}>
-          <label htmlFor="mileageFrom">Car mileage / km</label>
-          <div className={css.inputWrapper}>
-            <Field
-              id="mileageFrom"
-              name="mileageFrom"
-              placeholder="From"
-              className={css.input}
-            />
-            <Field name="mileageTo" placeholder="To" className={css.input} />
+          <div className={css.formGroup}>
+            <label htmlFor="price">Price / 1 hour</label>
+            <div className={css.inputWrapper}>
+              <Field as="select" id="price" name="price" className={css.input}>
+                <option value="">Select a price range</option>
+                {Array.from({ length: 50 }, (_, i) => 30 + i * 10).map(
+                  (price) => (
+                    <option key={price} value={price}>
+                      Up to ${price}
+                    </option>
+                  )
+                )}
+              </Field>
+            </div>
           </div>
-        </div>
-        <button type="submit" className={css.searchButton}>
-          Search
-        </button>
-      </Form>
+          <div className={css.formGroup}>
+            <label htmlFor="mileage">Car mileage / km</label>
+            <div className={css.inputWrapper}>
+              <Field
+                as="select"
+                id="mileageFrom"
+                name="mileageFrom"
+                className={css.input}
+              >
+                <option value="">From</option>
+                {mileageOptions.map((mileage) => (
+                  <option key={mileage} value={mileage}>
+                    From {mileage}
+                  </option>
+                ))}
+              </Field>
+              <Field
+                as="select"
+                id="mileageTo"
+                name="mileageTo"
+                className={css.input}
+              >
+                <option value="">To</option>
+                {mileageOptions.map((mileage) => (
+                  <option key={mileage} value={mileage + 500}>
+                    To {mileage + 500}
+                  </option>
+                ))}
+              </Field>
+            </div>
+          </div>
+          <div className={css.buttonGroup}>
+            <button type="submit" className={css.searchButton}>
+              Search
+            </button>
+            <button
+              type="button"
+              className={css.searchButton}
+              onClick={() => onReset(resetForm)}
+            >
+              Reset
+            </button>
+          </div>
+        </Form>
+      )}
     </Formik>
   );
 };
