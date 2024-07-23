@@ -1,5 +1,6 @@
 import { createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { getAdverts, getAdvert } from "../catalog/operations";
+import { getAdverts } from "../catalog/operations";
+import { getAdvert } from "../filters/operations";
 import { selectAdvertsItems } from "./selectors";
 import { selectFilter } from "../filters/selectors";
 
