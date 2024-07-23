@@ -1,7 +1,6 @@
 .header {
   width: 200px;
   height: 100vh;
-  min-height: 100vh;
   background-color: var(--dark-gray);
   position: fixed;
   top: 0;

@@ -16,8 +16,8 @@ img {
 
 .section {
   background-color: var(--light-gray);
-  padding: 15px;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .sectionTitle {
@@ -30,14 +30,24 @@ img {
 .list {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 45px;
 }
 
 .listItem {
-  margin-bottom: 15px;
+  width: 400px;
+  height: 100%;
+  min-height: 195px;
+  background: var(--super-light-gray);
+  padding: 13px;
+  border-radius: 15px;
 }
 
 .itemTitle {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   font-size: 22px;
   color: var(--white);
   text-align: center;
@@ -48,4 +58,23 @@ img {
   font-weight: 300;
   color: var(--light-white);
   text-align: center;
+}
+
+.link {
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: var(--white);
+  transition: color 0.3s ease-in-out;
+}
+
+.link:active {
+  color: var(--light-white);
+  transition: color 0.1s ease-in-out;
+}
+
+.imgDiv {
+  display: flex;
+  flex-wrap: wrap;
 }
