@@ -22,7 +22,12 @@
   padding: 10px 15px;
   border: 1px solid var(--dark-gray);
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.input:focus {
+  outline: none;
 }
 
 .buttonGroup {
@@ -32,7 +37,7 @@
 
 .searchButton {
   padding: 10px 20px;
-  background-color: var(--btn-primary);
+  background-color: var(--light-gray);
   color: var(--white);
   border: none;
   border-radius: 10px;
@@ -41,12 +46,14 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.searchButton:hover {
-  background-color: var(--btn-secondary);
+.searchButton:hover,
+.searchButton:focus {
+  background-color: var(--dark-gray);
+  outline: none;
 }
 
 .searchButton:active {
-  background-color: var(--btn-third);
+  background-color: var(--black);
 }
 
 label {

@@ -6,11 +6,6 @@
   --white: #ffffff;
   --light-white: #dddddd;
   --super-light-white: rgb(221, 221, 221);
-
-  /* Btn colors */
-  --btn-primary: #1a73e8;
-  --btn-secondary: #4285f4;
-  --btn-third: #6ba1f8;
 }
 
 body {

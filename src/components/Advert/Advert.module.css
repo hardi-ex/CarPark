@@ -55,7 +55,7 @@
 }
 
 .learnMoreButton {
-  background-color: var(--btn-primary);
+  background-color: var(--light-gray);
   color: var(--white);
   border: none;
   padding: 8px 16px;
@@ -64,10 +64,12 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.learnMoreButton:hover {
-  background-color: var(--btn-secondary);
+.learnMoreButton:hover,
+.learnMoreButton:focus {
+  background-color: var(--dark-gray);
+  outline: none;
 }
 
 .learnMoreButton:active {
-  background-color: var(--btn-third);
+  background-color: var(--black);
 }

@@ -47,7 +47,7 @@ const SearchBox = () => {
 
   const onReset = (resetForm) => {
     resetForm();
-    Object.entries(initialValues).forEach(([key]) => {
+    Object.entries(initialValues).forEach(([key, value]) => {
       dispatch(changeFilter({ name: key, value: initialValues[key] }));
     });
   };
@@ -90,7 +90,7 @@ const SearchBox = () => {
             </div>
           </div>
           <div className={css.formGroup}>
-            <label htmlFor="mileage">Car mileage / km</label>
+            <label htmlFor="mileageFrom">Car mileage / km</label>
             <div className={css.inputWrapper}>
               <Field
                 as="select"
