@@ -1,0 +1,15 @@
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  width: 100vh;
+  max-width: 1400px;
+  min-height: 100vh;
+  margin-left: 200px;
+  padding: 20px;
+  flex: 1;
+  background-color: var(--white);
+}

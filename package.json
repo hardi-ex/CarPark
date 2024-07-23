@@ -11,9 +11,11 @@
     "push": "git add . && git commit -m 'update' && git push"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.25.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
