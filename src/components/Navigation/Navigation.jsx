@@ -9,7 +9,10 @@ const buildNavClass = ({ isActive }) => {
 export const Navigation = () => {
   return (
     <header className={css.header}>
-      <h1>CarRental</h1>
+      <div>
+        <img src="/logo.svg" alt="Logo" width="60" height="60" />
+        <h1>CarRental</h1>
+      </div>
       <ul>
         <li>
           <NavLink className={buildNavClass} to="/">

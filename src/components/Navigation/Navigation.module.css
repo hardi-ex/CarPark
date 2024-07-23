@@ -13,15 +13,21 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
 }
 
+.header img {
+  margin: 0 auto;
+  cursor: default;
+}
+
 .header h1 {
-  margin-bottom: 20px;
   color: var(--white);
   text-align: center;
+  cursor: default;
 }
 
 .header ul {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 20px;
 }
