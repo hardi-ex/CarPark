@@ -8,7 +8,7 @@ export const Home = () => {
         src="/bgphoto.png"
         alt="Car of Rental Service"
         width="1400"
-        height="780"
+        height="800"
       />
       <div className={css.content}>
         <div className={css.section}>
