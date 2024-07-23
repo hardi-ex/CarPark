@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  filters: {
-    carBrand: "",
-    price: "",
-    mileageFrom: "",
-    mileageTo: "",
-  },
+  carBrand: "",
+  price: "",
+  mileageFrom: "",
+  mileageTo: "",
 };
 
 const slice = createSlice({
@@ -14,10 +12,8 @@ const slice = createSlice({
   initialState,
   reducers: {
     changeFilter: (state, action) => {
-      state.filters.carBrand = action.payload;
-      state.filters.price = action.payload;
-      state.filters.mileageFrom = action.payload;
-      state.filters.mileageTo = action.payload;
+      const { name, value } = action.payload;
+      state[name] = value;
     },
   },
 });
