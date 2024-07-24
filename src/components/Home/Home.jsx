@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
 import css from "./Home.module.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export const Home = () => {
   return (
     <div className={css.container}>
-      <img
-        className={css.svgIcons}
-        src="/bgphoto.png"
-        alt="Car of Rental Service"
-        width="1400"
-        height="800"
-      />
+      <div className={css.imageWrapper}>
+        <LazyLoadImage
+          className={css.bgPhoto}
+          src="/bgphoto.png"
+          alt="Car"
+          width="1400"
+          height="800"
+          effect="blur"
+        />
+      </div>
       <div className={css.content}>
         <div className={css.section}>
           <h3 className={css.sectionTitle}>Why Choose Us?</h3>

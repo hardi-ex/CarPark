@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { toggleFavoriteOperation } from "../../redux/favorites/operations";
 import { isFavorite } from "../../redux/favorites/selectors";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import css from "./Advert.module.css";
 
 const Advert = ({ advert, onOpenModal }) => {
@@ -17,7 +19,12 @@ const Advert = ({ advert, onOpenModal }) => {
   return (
     <div className={css.card}>
       <div className={css.imageWrapper}>
-        <img src={img} alt={make} className={css.image} />
+        <LazyLoadImage
+          className={css.image}
+          src={img}
+          alt={make}
+          effect="blur"
+        />
         <div className={css.heartIcon} onClick={handleToggleLike}>
           {isLiked ? (
             <img
