@@ -1,10 +1,21 @@
-import css from "./Favorites.module.css";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/favorites/selectors";
 import Advert from "../Advert/Advert";
+import Modal from "../Modal/Modal";
+import css from "./Favorites.module.css";
 
 export const Favorites = () => {
   const favorites = useSelector(selectFavorites);
+  const [selectedAdvert, setSelectedAdvert] = useState(null);
+
+  const openModal = (advert) => {
+    setSelectedAdvert(advert);
+  };
+
+  const closeModal = () => {
+    setSelectedAdvert(null);
+  };
 
   return (
     <>
@@ -17,10 +28,18 @@ export const Favorites = () => {
         <ul className={css.list}>
           {favorites.map((advert) => (
             <li key={advert.id} className={css.listItem}>
-              <Advert advert={advert} />
+              <Advert advert={advert} onOpenModal={openModal} />
             </li>
           ))}
         </ul>
+      )}
+
+      {selectedAdvert && (
+        <Modal
+          isOpen={!!selectedAdvert}
+          onRequestClose={closeModal}
+          advert={selectedAdvert}
+        />
       )}
     </>
   );

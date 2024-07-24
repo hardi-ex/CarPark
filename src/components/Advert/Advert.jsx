@@ -1,25 +1,14 @@
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleFavoriteOperation } from "../../redux/favorites/operations";
 import { isFavorite } from "../../redux/favorites/selectors";
 import css from "./Advert.module.css";
-import Modal from "../Modal/Modal";
 
-export const Advert = ({ advert }) => {
+const Advert = ({ advert, onOpenModal }) => {
   const dispatch = useDispatch();
   const isLiked = useSelector((state) => isFavorite(state, advert.id));
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleToggleLike = () => {
     dispatch(toggleFavoriteOperation(advert));
-  };
-
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
   };
 
   const { year, img, rentalPrice, make, model, address, rentalCompany, type } =
@@ -65,11 +54,12 @@ export const Advert = ({ advert }) => {
           {address}
         </p>
       </div>
-      <button className={css.learnMoreButton} onClick={openModal}>
+      <button
+        className={css.learnMoreButton}
+        onClick={() => onOpenModal(advert)}
+      >
         Learn more
       </button>
-
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} advert={advert} />
     </div>
   );
 };
