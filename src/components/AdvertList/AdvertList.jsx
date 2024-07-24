@@ -16,13 +16,17 @@ export const AdvertList = ({ adverts }) => {
 
   return (
     <>
-      <ul className={css.list}>
-        {adverts.map((advert) => (
-          <li key={advert.id} className={css.listItem}>
-            <Advert advert={advert} onOpenModal={openModal} />
-          </li>
-        ))}
-      </ul>
+      {adverts.length === 0 ? (
+        <p className={css.noResults}>Ops, no results found..</p>
+      ) : (
+        <ul className={css.list}>
+          {adverts.map((advert) => (
+            <li key={advert.id} className={css.listItem}>
+              <Advert advert={advert} onOpenModal={openModal} />
+            </li>
+          ))}
+        </ul>
+      )}
 
       {selectedAdvert && (
         <Modal

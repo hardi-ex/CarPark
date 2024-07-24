@@ -13,3 +13,10 @@
   border-radius: 15px;
   overflow: hidden;
 }
+
+.noResults {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--super-light-gray);
+  margin: 20px 0;
+}
