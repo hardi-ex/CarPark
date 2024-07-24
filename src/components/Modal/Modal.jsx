@@ -1,6 +1,8 @@
 import ReactModal from "react-modal";
 ReactModal.setAppElement("#root");
 import css from "./Modal.module.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Modal = ({ isOpen, onRequestClose, advert }) => {
   const {
@@ -49,7 +51,14 @@ const Modal = ({ isOpen, onRequestClose, advert }) => {
           &times;
         </button>
 
-        <img className={css.imgCar} src={img} alt={make} />
+        <div className={css.imageWrapper}>
+          <LazyLoadImage
+            className={css.imgCar}
+            src={img}
+            alt={make}
+            effect="blur"
+          />
+        </div>
         <h2 className={css.title}>
           {make}&nbsp;{model},&nbsp;{year}
         </h2>

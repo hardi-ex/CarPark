@@ -15,12 +15,21 @@
   font-size: 24px;
   cursor: pointer;
 }
+.imageWrapper {
+  margin: 0 auto;
+  width: 450px;
+  height: 200px;
+  background-color: var(--dark-gray);
+  border-radius: 10px;
+  overflow: hidden;
+}
 
 .imgCar {
   width: 450px;
   height: 200px;
   border-radius: 10px;
   object-fit: cover;
+  object-position: center;
   margin: 0 auto;
 }
 
