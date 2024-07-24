@@ -9,10 +9,10 @@ export const Favorites = () => {
   return (
     <>
       {favorites.length === 0 ? (
-        <p className={css.text}>
-          No favorites yet{" "}
-          <img src="/car.svg" alt="Car" width="10" height="10" />
-        </p>
+        <div className={css.container}>
+          <p className={css.text}>No favorites yet </p>
+          <img src="/sad.svg" alt="Sad man" width="30" height="30" />
+        </div>
       ) : (
         <ul className={css.list}>
           {favorites.map((advert) => (
