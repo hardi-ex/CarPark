@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { advertsReducer } from "./catalog/slice";
 import { filteredReducer } from "./filters/slice";
 import { favoritesReducer } from "./favorites/slice";
@@ -14,20 +14,23 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+const rootReducer = combineReducers({
+  adverts: advertsReducer,
+  filters: filteredReducer,
+  favorites: favoritesReducer,
+});
+
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
+  whitelist: ["adverts", "favorites"],
 };
 
-const persistedReducer = persistReducer(persistConfig, advertsReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: {
-    adverts: persistedReducer,
-    filters: filteredReducer,
-    favorites: favoritesReducer,
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
