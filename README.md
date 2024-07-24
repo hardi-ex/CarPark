@@ -10,8 +10,6 @@ CarRental is a web application designed for car rental services in Ukraine. This
 - [Project Structure](#project-structure)
 - [Components](#components)
 - [State Management](#state-management)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -20,14 +18,15 @@ CarRental is a web application designed for car rental services in Ukraine. This
 - **Favorite Cars**: Mark cars as favorites and view them in a dedicated section.
 - **Detailed View**: See detailed information about each vehicle.
 - **Persistent State**: User preferences and state are retained across sessions.
+- **Language Switch**: Switch the website language to English or Ukrainian.і
 
 ## Installation
 
 1. **Clone the repository:**
 
    1. bash
-   2. git clone https://github.com/yourusername/CarRental.git
-   3. cd CarRental`
+   2. git clone https://github.com/hardi-ex/CarRental.git
+   3. cd CarRental
 
 2. **Install dependencies:**
 
@@ -37,11 +36,11 @@ CarRental is a web application designed for car rental services in Ukraine. This
 
 `npm start`
 
-The application will be available at http://localhost:3000.
+The application will be available at http://localhost
 
 ## Usage
 
-Navigate to http://localhost:3000 to access the application.
+Navigate to http://localhost to access the application.
 Browse the catalog of cars, filter by various criteria, and mark cars as favorites.
 Click on a car to view detailed information.
 Use the navigation menu to switch between Home, Catalog, and Favorites.
@@ -132,12 +131,4 @@ filters: Manages the filter criteria for the car catalog.
 
 redux-persist is used to ensure that the state is persisted across sessions, so user preferences and favorites are retained even after refreshing the page.
 
-## Contributing
-
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
-
-1. Fork the repository.
-2. Create a feature branch (git checkout -b feature/YourFeature).
-3. Commit your changes (git commit -m 'Add some feature').
-4. Push to the branch (git push origin feature/YourFeature).
-5. Create a new Pull Request.
+#### Thank you for your attention! I hope you find CarRental useful and convenient. If you have any questions or feedback, please feel free to reach out.
