@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import css from "./Home.module.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useTranslation } from "react-i18next";
@@ -125,12 +124,7 @@ export const Home = () => {
         </div>
         <div className={css.section}>
           <h3 className={css.sectionTitle}>{t("bookToday")}</h3>
-          <p className={css.itemDescription}>
-            {t("bookDescription")}{" "}
-            <Link className={css.link} to="/catalog">
-              {t("catalog")}
-            </Link>
-          </p>
+          <p className={css.itemDescription}>{t("bookDescription")}</p>
         </div>
       </div>
     </div>
