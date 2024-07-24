@@ -23,7 +23,7 @@ export const Home = () => {
             <li className={css.listItem}>
               <img
                 className={css.svgIcons}
-                src="/car.svg"
+                src="/svg/car.svg"
                 alt="Vehicle"
                 width="40"
                 height="40"
@@ -37,7 +37,7 @@ export const Home = () => {
             <li className={css.listItem}>
               <img
                 className={css.svgIcons}
-                src="/coins.svg"
+                src="/svg/coins.svg"
                 alt="Rates"
                 width="40"
                 height="40"
@@ -51,7 +51,7 @@ export const Home = () => {
             <li className={css.listItem}>
               <img
                 className={css.svgIcons}
-                src="/locations.svg"
+                src="/svg/locations.svg"
                 alt="Locations"
                 width="40"
                 height="40"
@@ -65,7 +65,7 @@ export const Home = () => {
             <li className={css.listItem}>
               <img
                 className={css.svgIcons}
-                src="/service.svg"
+                src="/svg/service.svg"
                 alt="Service"
                 width="40"
                 height="40"
@@ -79,7 +79,7 @@ export const Home = () => {
             <li className={css.listItem}>
               <img
                 className={css.svgIcons}
-                src="/plan.svg"
+                src="/svg/plan.svg"
                 alt="Plans"
                 width="40"
                 height="40"
@@ -93,7 +93,7 @@ export const Home = () => {
             <li className={css.listItem}>
               <img
                 className={css.svgIcons}
-                src="/update.svg"
+                src="/svg/update.svg"
                 alt="Fleet"
                 width="40"
                 height="40"
@@ -112,14 +112,14 @@ export const Home = () => {
           <div className={css.imgDiv}>
             <img
               className={css.svgIcons}
-              src="/mountains.svg"
+              src="/svg/mountains.svg"
               alt=""
               width="100"
               height="100"
             />
             <img
               className={css.svgIcons}
-              src="/city.svg"
+              src="/svg/city.svg"
               alt=""
               width="100"
               height="100"

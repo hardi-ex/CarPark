@@ -28,14 +28,14 @@ const Advert = ({ advert, onOpenModal }) => {
         <div className={css.heartIcon} onClick={handleToggleLike}>
           {isLiked ? (
             <img
-              src="/yellowheart.svg"
+              src="/svg/yellowheart.svg"
               alt="Yellow Heart"
               width="25"
               height="25"
             />
           ) : (
             <img
-              src="/whiteheart.svg"
+              src="/svg/whiteheart.svg"
               alt="White Heart"
               width="25"
               height="25"

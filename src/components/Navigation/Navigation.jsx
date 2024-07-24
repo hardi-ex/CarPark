@@ -10,7 +10,7 @@ export const Navigation = () => {
   return (
     <header className={css.header}>
       <div>
-        <img src="/logo.svg" alt="Logo" width="60" height="60" />
+        <img src="/svg/logo.svg" alt="Logo" width="60" height="60" />
         <h1>CarRental</h1>
       </div>
       <ul>
