@@ -5,6 +5,7 @@ export const Home = () => {
   return (
     <div className={css.container}>
       <img
+        className={css.svgIcons}
         src="/bgphoto.png"
         alt="Car of Rental Service"
         width="1400"
@@ -15,7 +16,13 @@ export const Home = () => {
           <h3 className={css.sectionTitle}>Why Choose Us?</h3>
           <ul className={css.list}>
             <li className={css.listItem}>
-              <img src="/car.svg" alt="Vehicle" width="40" height="40" />
+              <img
+                className={css.svgIcons}
+                src="/car.svg"
+                alt="Vehicle"
+                width="40"
+                height="40"
+              />
               <h4 className={css.itemTitle}>Wide Selection of Vehicles</h4>
               <p className={css.itemDescription}>
                 From compact cars to luxury sedans and spacious SUVs, we have a
@@ -23,7 +30,13 @@ export const Home = () => {
               </p>
             </li>
             <li className={css.listItem}>
-              <img src="/coins.svg" alt="Rates" width="40" height="40" />
+              <img
+                className={css.svgIcons}
+                src="/coins.svg"
+                alt="Rates"
+                width="40"
+                height="40"
+              />
               <h4 className={css.itemTitle}>Affordable Rates</h4>
               <p className={css.itemDescription}>
                 We offer competitive pricing with no hidden fees, ensuring you
@@ -32,6 +45,7 @@ export const Home = () => {
             </li>
             <li className={css.listItem}>
               <img
+                className={css.svgIcons}
                 src="/locations.svg"
                 alt="Locations"
                 width="40"
@@ -44,7 +58,13 @@ export const Home = () => {
               </p>
             </li>
             <li className={css.listItem}>
-              <img src="/service.svg" alt="Service" width="40" height="40" />
+              <img
+                className={css.svgIcons}
+                src="/service.svg"
+                alt="Service"
+                width="40"
+                height="40"
+              />
               <h4 className={css.itemTitle}>Excellent Customer Service</h4>
               <p className={css.itemDescription}>
                 Our friendly and professional staff are here to assist you 24/7,
@@ -52,7 +72,13 @@ export const Home = () => {
               </p>
             </li>
             <li className={css.listItem}>
-              <img src="/plan.svg" alt="Plans" width="40" height="40" />
+              <img
+                className={css.svgIcons}
+                src="/plan.svg"
+                alt="Plans"
+                width="40"
+                height="40"
+              />
               <h4 className={css.itemTitle}>Flexible Rental Plans</h4>
               <p className={css.itemDescription}>
                 Whether you need a car for a day, a week, or a month, we offer
@@ -60,7 +86,13 @@ export const Home = () => {
               </p>
             </li>
             <li className={css.listItem}>
-              <img src="/update.svg" alt="Fleet" width="40" height="40" />
+              <img
+                className={css.svgIcons}
+                src="/update.svg"
+                alt="Fleet"
+                width="40"
+                height="40"
+              />
               <h4 className={css.itemTitle}>Modern Fleet</h4>
               <p className={css.itemDescription}>
                 Our vehicles are regularly updated to ensure you have access to
@@ -73,8 +105,20 @@ export const Home = () => {
         <div className={css.section}>
           <h3 className={css.sectionTitle}>Explore Ukraine with Confidence</h3>
           <div className={css.imgDiv}>
-            <img src="/mountains.svg" alt="" width="100" height="100" />
-            <img src="/city.svg" alt="" width="100" height="100" />
+            <img
+              className={css.svgIcons}
+              src="/mountains.svg"
+              alt=""
+              width="100"
+              height="100"
+            />
+            <img
+              className={css.svgIcons}
+              src="/city.svg"
+              alt=""
+              width="100"
+              height="100"
+            />
           </div>
           <p className={css.itemDescription}>
             You can explore the beautiful landscapes and vibrant cities of
