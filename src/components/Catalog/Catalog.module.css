@@ -4,3 +4,9 @@
   flex-direction: column;
   gap: 40px;
 }
+
+@media (max-width: 767px) {
+  .catalog {
+    margin-top: 110px;
+  }
+}

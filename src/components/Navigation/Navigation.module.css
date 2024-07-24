@@ -11,6 +11,7 @@
   justify-content: space-between;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+  z-index: 99999;
 }
 
 .header img {
@@ -50,4 +51,57 @@
 .activeNavLink {
   color: rgb(165, 165, 165);
   transition: color 0.3s ease-in-out;
+}
+
+@media (max-width: 767px) {
+  .header {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  }
+
+  .header img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header ul {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .header li {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 424px) {
+  .header {
+    width: 100%;
+    height: 97px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .header img {
+    display: none;
+  }
+
+  .header ul {
+    gap: 15px;
+  }
+
+  .header h1 {
+    display: none;
+  }
+
+  .header li {
+    font-size: 20px;
+  }
 }

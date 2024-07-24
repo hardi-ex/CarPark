@@ -29,3 +29,9 @@
   border-radius: 15px;
   overflow: hidden;
 }
+
+@media (max-width: 767px) {
+  .list {
+    margin-top: 110px;
+  }
+}

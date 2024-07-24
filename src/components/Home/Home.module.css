@@ -1,4 +1,5 @@
 .container {
+  margin-top: 0;
 }
 
 .svgIcons {
@@ -76,4 +77,10 @@
 .imgDiv {
   display: flex;
   flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin-top: 110px;
+  }
 }
