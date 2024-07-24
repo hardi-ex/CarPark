@@ -2,30 +2,7 @@ import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 import { changeFilter } from "../../redux/filters/slice";
 import css from "./SearchBox.module.css";
-
-const carMakes = [
-  "Buick",
-  "Volvo",
-  "HUMMER",
-  "Subaru",
-  "Mitsubishi",
-  "Nissan",
-  "Lincoln",
-  "GMC",
-  "Hyundai",
-  "MINI",
-  "Bentley",
-  "Mercedes-Benz",
-  "Aston Martin",
-  "Pontiac",
-  "Lamborghini",
-  "Audi",
-  "BMW",
-  "Chevrolet",
-  "Chrysler",
-  "Kia",
-  "Land Rover",
-];
+import carMakes from "../../data/makes.json";
 
 const initialValues = {
   carBrand: "",
@@ -40,7 +17,17 @@ const SearchBox = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (values) => {
-    Object.entries(values).forEach(([key, value]) => {
+    const parsedValues = {
+      ...values,
+      mileageFrom: values.mileageFrom
+        ? parseInt(values.mileageFrom.replace(/,/g, ""), 10)
+        : "",
+      mileageTo: values.mileageTo
+        ? parseInt(values.mileageTo.replace(/,/g, ""), 10)
+        : "",
+    };
+
+    Object.entries(parsedValues).forEach(([key, value]) => {
       dispatch(changeFilter({ name: key, value }));
     });
   };
@@ -101,7 +88,7 @@ const SearchBox = () => {
                 <option value="">From</option>
                 {mileageOptions.map((mileage) => (
                   <option key={mileage} value={mileage}>
-                    From {mileage}
+                    From {mileage.toLocaleString("en-US")}
                   </option>
                 ))}
               </Field>
@@ -114,7 +101,7 @@ const SearchBox = () => {
                 <option value="">To</option>
                 {mileageOptions.map((mileage) => (
                   <option key={mileage} value={mileage + 500}>
-                    To {mileage + 500}
+                    To {(mileage + 500).toLocaleString("en-US")}
                   </option>
                 ))}
               </Field>
