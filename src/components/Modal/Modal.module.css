@@ -1,20 +1,30 @@
 .modalContent {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: calc(50% + 100px);
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  border-radius: 20px;
+  padding: 30px;
+  width: 550px;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  z-index: 1000;
 }
 
 .closeButton {
   position: absolute;
   padding: 5px;
-  top: -15px;
-  right: -15px;
+  top: 15px;
+  right: 15px;
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
 }
+
 .imageWrapper {
   margin: 0 auto;
   width: 450px;
@@ -88,4 +98,125 @@
 
 .btnRent:active {
   background-color: var(--black);
+}
+
+@media (max-width: 1199px) {
+  .modalContent {
+    width: 450px;
+    min-height: 550px;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .mainText {
+    font-size: 15px;
+  }
+
+  .mainWrap {
+    gap: 8px;
+  }
+
+  .additionalWrap {
+    gap: 8px;
+  }
+
+  .titleAdditional {
+    font-size: 16px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+
+  .imageWrapper {
+    width: 350px;
+    height: 150px;
+  }
+
+  .imgCar {
+    width: 350px;
+    height: 150px;
+  }
+
+  .closeButton {
+    top: 5px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .modalContent {
+    width: 350px;
+    min-height: 250px;
+    top: calc(50% + 50px);
+    left: 50%;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .mainText {
+    font-size: 12px;
+  }
+
+  .mainWrap {
+    gap: 5px;
+  }
+
+  .additionalWrap {
+    gap: 5px;
+  }
+
+  .titleAdditional {
+    font-size: 14px;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+
+  .imageWrapper {
+    width: 280px;
+    height: 120px;
+  }
+
+  .imgCar {
+    width: 280px;
+    height: 120px;
+  }
+
+  .closeButton {
+    top: 5px;
+    right: 7px;
+  }
+
+  .btnRent {
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 424px) {
+  .modalContent {
+    width: 280px;
+  }
+
+  .imageWrapper {
+    width: 230px;
+    height: 120px;
+  }
+
+  .imgCar {
+    width: 230px;
+    height: 120px;
+  }
+
+  .closeButton {
+    right: 2px;
+  }
 }
