@@ -36,21 +36,43 @@
 .header li {
   color: var(--white);
   font-size: 18px;
+  transition: color 0.1s ease-in-out;
 }
 
 .header li:hover {
   color: rgb(165, 165, 165);
-  transition: color 0.3s ease-in-out;
 }
 
 .header li:active {
   color: rgb(117, 117, 117);
-  transition: color 0.1s ease-in-out;
 }
 
 .activeNavLink {
   color: rgb(165, 165, 165);
   transition: color 0.3s ease-in-out;
+}
+
+.btnChangeLanguage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnChangeLanguage p {
+  cursor: pointer;
+  color: var(--white);
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btnChangeLanguage p:hover,
+.btnChangeLanguage p:focus {
+  color: rgb(165, 165, 165);
+}
+
+.btnChangeLanguage p:active {
+  color: rgb(117, 117, 117);
 }
 
 @media (max-width: 767px) {

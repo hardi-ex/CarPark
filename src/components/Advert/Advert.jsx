@@ -2,11 +2,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleFavoriteOperation } from "../../redux/favorites/operations";
 import { isFavorite } from "../../redux/favorites/selectors";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useTranslation } from "react-i18next";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import css from "./Advert.module.css";
 
 const Advert = ({ advert, onOpenModal }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const isLiked = useSelector((state) => isFavorite(state, advert.id));
 
   const handleToggleLike = () => {
@@ -49,15 +51,15 @@ const Advert = ({ advert, onOpenModal }) => {
         </h4>
         <p className={css.price}>{rentalPrice}</p>
         <p className={css.info}>
-          <span className={css.spanInfo}>Type: </span>
+          <span className={css.spanInfo}>{t("type")}: </span>
           {type}
         </p>
         <p className={css.info}>
-          <span className={css.spanInfo}>Rental company: </span>
+          <span className={css.spanInfo}>{t("rentalCompany")}: </span>
           {rentalCompany}
         </p>
         <p className={css.info}>
-          <span className={css.spanInfo}>Address: </span>
+          <span className={css.spanInfo}>{t("address")}: </span>
           {address}
         </p>
       </div>
@@ -65,7 +67,7 @@ const Advert = ({ advert, onOpenModal }) => {
         className={css.learnMoreButton}
         onClick={() => onOpenModal(advert)}
       >
-        Learn more
+        {t("learnMore")}
       </button>
     </div>
   );

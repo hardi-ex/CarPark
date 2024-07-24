@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { changeFilter } from "../../redux/filters/slice";
 import css from "./SearchBox.module.css";
 import carMakes from "../../data/makes.json";
+import { useTranslation } from "react-i18next";
 
 const initialValues = {
   carBrand: "",
@@ -15,6 +16,7 @@ const mileageOptions = Array.from({ length: 11 }, (_, i) => 3000 + i * 500);
 
 const SearchBox = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const onSubmit = (values) => {
     const parsedValues = {
@@ -44,7 +46,7 @@ const SearchBox = () => {
       {({ resetForm }) => (
         <Form className={css.searchForm}>
           <div className={css.formGroup}>
-            <label htmlFor="carBrand">Car brand</label>
+            <label htmlFor="carBrand">{t("carBrand")}</label>
             <div className={css.inputWrapper}>
               <Field
                 as="select"
@@ -52,7 +54,7 @@ const SearchBox = () => {
                 name="carBrand"
                 className={css.input}
               >
-                <option value="">Select a brand</option>
+                <option value="">{t("selectBrand")}</option>
                 {carMakes.map((make) => (
                   <option key={make} value={make}>
                     {make}
@@ -62,14 +64,14 @@ const SearchBox = () => {
             </div>
           </div>
           <div className={css.formGroup}>
-            <label htmlFor="price">Price / 1 hour</label>
+            <label htmlFor="price">{t("pricePerHour")}</label>
             <div className={css.inputWrapper}>
               <Field as="select" id="price" name="price" className={css.input}>
-                <option value="">Select a price range</option>
+                <option value="">{t("selectPriceRange")}</option>
                 {Array.from({ length: 50 }, (_, i) => 30 + i * 10).map(
                   (price) => (
                     <option key={price} value={price}>
-                      Up to ${price}
+                      {t("upTo")} ${price}
                     </option>
                   )
                 )}
@@ -77,7 +79,7 @@ const SearchBox = () => {
             </div>
           </div>
           <div className={css.formGroup}>
-            <label htmlFor="mileageFrom">Car mileage / km</label>
+            <label htmlFor="mileageFrom">{t("mileageFrom")}</label>
             <div className={css.inputWrapper}>
               <Field
                 as="select"
@@ -85,10 +87,10 @@ const SearchBox = () => {
                 name="mileageFrom"
                 className={css.input}
               >
-                <option value="">From</option>
+                <option value="">{t("from")}</option>
                 {mileageOptions.map((mileage) => (
                   <option key={mileage} value={mileage}>
-                    From {mileage.toLocaleString("en-US")}
+                    {t("from")} {mileage.toLocaleString("en-US")}
                   </option>
                 ))}
               </Field>
@@ -98,10 +100,10 @@ const SearchBox = () => {
                 name="mileageTo"
                 className={css.input}
               >
-                <option value="">To</option>
+                <option value="">{t("to")}</option>
                 {mileageOptions.map((mileage) => (
                   <option key={mileage} value={mileage + 500}>
-                    To {(mileage + 500).toLocaleString("en-US")}
+                    {t("to")} {(mileage + 500).toLocaleString("en-US")}
                   </option>
                 ))}
               </Field>
@@ -109,14 +111,14 @@ const SearchBox = () => {
           </div>
           <div className={css.buttonGroup}>
             <button type="submit" className={css.searchButton}>
-              Search
+              {t("search")}
             </button>
             <button
               type="button"
               className={css.searchButton}
               onClick={() => onReset(resetForm)}
             >
-              Reset
+              {t("reset")}
             </button>
           </div>
         </Form>

@@ -1,4 +1,5 @@
 import ReactModal from "react-modal";
+import { useTranslation } from "react-i18next";
 ReactModal.setAppElement("#root");
 import css from "./Modal.module.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -6,6 +7,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { useEffect } from "react";
 
 const Modal = ({ isOpen, onRequestClose, advert }) => {
+  const { t } = useTranslation();
   const {
     year,
     img,
@@ -67,56 +69,58 @@ const Modal = ({ isOpen, onRequestClose, advert }) => {
 
       <div className={css.mainWrap}>
         <p className={css.text}>
-          <span className={css.mainText}>Rental Price: </span>
+          <span className={css.mainText}>{t("rentalPrice")}: </span>
           {rentalPrice}
         </p>
         <p className={css.text}>
-          <span className={css.mainText}>Type: </span>
+          <span className={css.mainText}>{t("type")}: </span>
           {type}
         </p>
         <p className={css.text}>
-          <span className={css.mainText}>Engine size: </span>
+          <span className={css.mainText}>{t("engineSize")}: </span>
           {engineSize}
         </p>
         <p className={css.text}>
-          <span className={css.mainText}>Fuel consumption: </span>
+          <span className={css.mainText}>{t("fuelConsumption")}: </span>
           {fuelConsumption}
         </p>
         <p className={css.text}>
-          <span className={css.mainText}>Mileage: </span>
+          <span className={css.mainText}>{t("mileage")}: </span>
           {mileage}
         </p>
         <p className={css.text}>
-          <span className={css.mainText}>Description: </span>
+          <span className={css.mainText}>{t("description")}: </span>
           {description}
         </p>
         <p className={css.text}>
-          <span className={css.mainText}>Rental conditions: </span>
+          <span className={css.mainText}>{t("rentalConditions")}: </span>
           {rentalConditions}
         </p>
       </div>
 
       <div className={css.additionalWrap}>
         <h3 className={css.titleAdditional}>
-          Accessories and functionalities:{" "}
+          {t("accessoriesFunctionalities")}:{" "}
         </h3>
         <p className={css.text}>{accessories.join(" | ")}</p>
         <p className={css.text}>{functionalities.join(" | ")}</p>
       </div>
 
       <div className={css.additionalWrap}>
-        <h3 className={css.titleAdditional}>Rental Information</h3>
+        <h3 className={css.titleAdditional}>{t("rentalInformation")}</h3>
         <p className={css.text}>
-          <span className={css.mainText}>Rental Company: </span> {rentalCompany}
+          <span className={css.mainText}>{t("rentalCompany")}: </span>
+          {rentalCompany}
         </p>
         <p className={css.text}>
-          <span className={css.mainText}>Address: </span>
+          <span className={css.mainText}>{t("address")}: </span>
           {address}
         </p>
       </div>
 
       <a className={css.btnRent} href="tel:+380730000000">
-        Rental car <img src="/phone.svg" alt="Phone" width="20" height="20" />
+        {t("rentCar")}{" "}
+        <img src="/svg/phone.svg" alt="Phone" width="20" height="20" />
       </a>
     </ReactModal>
   );

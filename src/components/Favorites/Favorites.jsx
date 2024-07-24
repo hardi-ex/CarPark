@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/favorites/selectors";
 import Advert from "../Advert/Advert";
 import Modal from "../Modal/Modal";
+import { useTranslation } from "react-i18next";
 import css from "./Favorites.module.css";
 
 export const Favorites = () => {
+  const { t } = useTranslation();
   const favorites = useSelector(selectFavorites);
   const [selectedAdvert, setSelectedAdvert] = useState(null);
 
@@ -21,7 +23,7 @@ export const Favorites = () => {
     <>
       {favorites.length === 0 ? (
         <div className={css.container}>
-          <p className={css.text}>No favorites yet </p>
+          <p className={css.text}>{t("noFavorites")}</p>
           <img src="/svg/sad.svg" alt="Sad man" width="30" height="30" />
         </div>
       ) : (
