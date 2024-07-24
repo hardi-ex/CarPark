@@ -1,0 +1,82 @@
+.modalContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.closeButton {
+  position: absolute;
+  padding: 5px;
+  top: -15px;
+  right: -15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.imgCar {
+  width: 450px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  color: var(--dark-gray);
+  font-size: 26px;
+}
+.mainText {
+  font-weight: 500;
+  color: var(--light-gray);
+}
+
+.mainWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.additionalWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titleAdditional {
+  text-align: center;
+  color: var(--light-gray);
+}
+
+.text {
+  color: var(--super-light-gray);
+}
+
+.btnRent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 168px;
+  height: 44px;
+  background-color: var(--light-gray);
+  color: var(--white);
+  border: none;
+  margin: 0 auto;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btnRent:hover,
+.btnRent:focus {
+  background-color: var(--dark-gray);
+  outline: none;
+}
+
+.btnRent:active {
+  background-color: var(--black);
+}
