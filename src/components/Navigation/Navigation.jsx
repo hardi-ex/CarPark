@@ -16,7 +16,7 @@ export const Navigation = () => {
 
   return (
     <header className={css.header}>
-      <div>
+      <div className={css.logo}>
         <img src="/svg/logo.svg" alt="Logo" width="60" height="60" />
         <h1>CarRental</h1>
       </div>
@@ -39,24 +39,9 @@ export const Navigation = () => {
       </ul>
       <div className={css.btnChangeLanguage}>
         <button onClick={() => changeLanguage("en")}>
-          {/* <img
-            className={css.svgIconsFlag}
-            src="/svg/flaguk.svg"
-            alt="Flag UK"
-            width="25"
-            height="25"
-          /> */}
-          <p>{t("langUk")}</p>
+          <p>{t("langEn")}</p>
         </button>
-        <button onClick={() => changeLanguage("uk")}>
-          {" "}
-          {/* <img
-            className={css.svgIconsFlag}
-            src="/svg/flagua.svg"
-            alt="Flag UA"
-            width="25"
-            height="25"
-          /> */}
+        <button onClick={() => changeLanguage("ua")}>
           <p>{t("langUa")}</p>
         </button>
       </div>
