@@ -17,16 +17,42 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<Loader />}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-        </Route>
-        <Route path="*" element={<HomePage />} />{" "}
-      </Routes>
-    </Suspense>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route
+          index
+          element={
+            <Suspense fallback={<Loader />}>
+              <HomePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/catalog"
+          element={
+            <Suspense fallback={<Loader />}>
+              <CatalogPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <Suspense fallback={<Loader />}>
+              <FavoritesPage />
+            </Suspense>
+          }
+        />
+      </Route>
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={<Loader />}>
+            <HomePage />
+          </Suspense>
+        }
+      />
+    </Routes>
   );
 };
 export default App;
