@@ -22,3 +22,22 @@ export const getAdverts = createAsyncThunk(
     }
   }
 );
+
+export const getAllAdverts = createAsyncThunk(
+  "adverts/getAllAdverts",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axiosInstance.get(`/Adverts`);
+
+      const total = response.headers["x-total-count"];
+
+      return {
+        items: response.data,
+        total: total ? parseInt(total, 10) : 32,
+      };
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

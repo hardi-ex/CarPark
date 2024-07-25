@@ -1,5 +1,8 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { getAdverts } from "./operations";
+import { createSelector } from "@reduxjs/toolkit";
+import { selectFilter } from "../filters/selectors";
+import { selectAdvertsItems } from "./selectors";
 
 const initialState = {
   items: [],
@@ -48,3 +51,24 @@ const slice = createSlice({
 
 export const { setPage, resetPage } = slice.actions;
 export const advertsReducer = slice.reducer;
+
+export const selectFilteredContacts = createSelector(
+  [selectAdvertsItems, selectFilter],
+  (adverts, filter) => {
+    if (!adverts) return [];
+    return adverts.filter((advert) => {
+      const matchCarBrand =
+        !filter.carBrand ||
+        advert.make.toLowerCase().includes(filter.carBrand.toLowerCase());
+      const matchPrice =
+        !filter.price ||
+        parseFloat(advert.rentalPrice.replace("$", "")) <=
+          parseFloat(filter.price);
+      const matchMileageFrom =
+        !filter.mileageFrom || advert.mileage >= parseFloat(filter.mileageFrom);
+      const matchMileageTo =
+        !filter.mileageTo || advert.mileage <= parseFloat(filter.mileageTo);
+      return matchCarBrand && matchPrice && matchMileageFrom && matchMileageTo;
+    });
+  }
+);

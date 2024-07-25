@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdverts } from "../../redux/catalog/operations";
 import { setPage } from "../../redux/catalog/slice";
-import { selectFilteredContacts } from "../../redux/catalog/selectors";
+import { selectFilteredContacts } from "../../redux/catalog/slice";
 import Advert from "../Advert/Advert";
 import Modal from "../Modal/Modal";
 import { useTranslation } from "react-i18next";
