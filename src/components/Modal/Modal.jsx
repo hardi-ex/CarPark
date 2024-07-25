@@ -5,6 +5,7 @@ import css from "./Modal.module.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useEffect } from "react";
+import { Icon } from "../Icon/Icon";
 
 const Modal = ({ isOpen, onRequestClose, advert }) => {
   const { t } = useTranslation();
@@ -57,7 +58,7 @@ const Modal = ({ isOpen, onRequestClose, advert }) => {
 
       <div className={css.imageWrapper}>
         <LazyLoadImage
-          className={css.imgCar}
+          className={css.svgCar}
           src={img}
           alt={make}
           effect="blur"
@@ -119,8 +120,7 @@ const Modal = ({ isOpen, onRequestClose, advert }) => {
       </div>
 
       <a className={css.btnRent} href="tel:+380730000000">
-        {t("rentCar")}{" "}
-        <img src="/svg/phone.svg" alt="Phone" width="20" height="20" />
+        {t("rentCar")} <Icon id="phone" width="20" height="20" />
       </a>
     </ReactModal>
   );

@@ -14,8 +14,10 @@
   z-index: 99999;
 }
 
-.header img {
-  margin: 0 auto;
+.header svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   cursor: default;
 }
 
@@ -88,7 +90,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
   }
 
-  .header img {
+  .header svg {
     width: 40px;
     height: 40px;
   }

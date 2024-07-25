@@ -19,6 +19,7 @@
 }
 
 .svgIcons {
+  display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
@@ -91,7 +92,7 @@
   transition: color 0.1s ease-in-out;
 }
 
-.imgDiv {
+.svgDiv {
   display: flex;
   flex-wrap: wrap;
 }

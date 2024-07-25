@@ -24,7 +24,6 @@ export const Favorites = () => {
       {favorites.length === 0 ? (
         <div className={css.container}>
           <p className={css.text}>{t("noFavorites")}</p>
-          <img src="/svg/sad.svg" alt="Sad man" width="30" height="30" />
         </div>
       ) : (
         <ul className={css.list}>

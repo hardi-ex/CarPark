@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import css from "./Navigation.module.css";
 import { useTranslation } from "react-i18next";
+import { Icon } from "../Icon/Icon";
 
 const buildNavClass = ({ isActive }) => {
   return clsx(isActive && css.activeNavLink);
@@ -17,7 +18,7 @@ export const Navigation = () => {
   return (
     <header className={css.header}>
       <div className={css.logo}>
-        <img src="/svg/logo.svg" alt="Logo" width="60" height="60" />
+        <Icon id="logo" width="60" height="60" />
         <h1>CarRental</h1>
       </div>
       <ul>

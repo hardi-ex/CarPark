@@ -34,7 +34,7 @@
   overflow: hidden;
 }
 
-.imgCar {
+.svgCar {
   width: 450px;
   height: 200px;
   border-radius: 10px;
@@ -136,7 +136,7 @@
     height: 150px;
   }
 
-  .imgCar {
+  .svgCar {
     width: 350px;
     height: 150px;
   }
@@ -184,7 +184,7 @@
     height: 120px;
   }
 
-  .imgCar {
+  .svgCar {
     width: 280px;
     height: 120px;
   }
@@ -211,7 +211,7 @@
     height: 120px;
   }
 
-  .imgCar {
+  .svgCar {
     width: 230px;
     height: 120px;
   }

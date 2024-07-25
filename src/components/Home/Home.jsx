@@ -1,7 +1,8 @@
-import css from "./Home.module.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useTranslation } from "react-i18next";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Icon } from "../Icon/Icon";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import css from "./Home.module.css";
 
 export const Home = () => {
   const { t } = useTranslation();
@@ -23,23 +24,16 @@ export const Home = () => {
           <h3 className={css.sectionTitle}>{t("whyChooseUs")}</h3>
           <ul className={css.list}>
             <li className={css.listItem}>
-              <img
-                className={css.svgIcons}
-                src="/svg/car.svg"
-                alt="Vehicle"
-                width="40"
-                height="40"
-              />
+              <Icon className={css.svgIcons} id="car" width="40" height="40" />
               <h4 className={css.itemTitle}>{t("wideSelection")}</h4>
               <p className={css.itemDescription}>
                 {t("wideSelectionDescription")}
               </p>
             </li>
             <li className={css.listItem}>
-              <img
+              <Icon
                 className={css.svgIcons}
-                src="/svg/coins.svg"
-                alt="Rates"
+                id="coins"
                 width="40"
                 height="40"
               />
@@ -49,10 +43,9 @@ export const Home = () => {
               </p>
             </li>
             <li className={css.listItem}>
-              <img
+              <Icon
                 className={css.svgIcons}
-                src="/svg/locations.svg"
-                alt="Locations"
+                id="locations"
                 width="40"
                 height="40"
               />
@@ -62,10 +55,9 @@ export const Home = () => {
               </p>
             </li>
             <li className={css.listItem}>
-              <img
+              <Icon
                 className={css.svgIcons}
-                src="/svg/service.svg"
-                alt="Service"
+                id="service"
                 width="40"
                 height="40"
               />
@@ -75,23 +67,16 @@ export const Home = () => {
               </p>
             </li>
             <li className={css.listItem}>
-              <img
-                className={css.svgIcons}
-                src="/svg/plan.svg"
-                alt="Plans"
-                width="40"
-                height="40"
-              />
+              <Icon className={css.svgIcons} id="plan" width="40" height="40" />
               <h4 className={css.itemTitle}>{t("flexiblePlans")}</h4>
               <p className={css.itemDescription}>
                 {t("flexiblePlansDescription")}
               </p>
             </li>
             <li className={css.listItem}>
-              <img
+              <Icon
                 className={css.svgIcons}
-                src="/svg/update.svg"
-                alt="Fleet"
+                id="update"
                 width="40"
                 height="40"
               />
@@ -104,21 +89,14 @@ export const Home = () => {
         </div>
         <div className={css.section}>
           <h3 className={css.sectionTitle}>{t("exploreWithConfidence")}</h3>
-          <div className={css.imgDiv}>
-            <img
+          <div className={css.svgDiv}>
+            <Icon
               className={css.svgIcons}
-              src="/svg/mountains.svg"
-              alt=""
+              id="mountains"
               width="100"
               height="100"
             />
-            <img
-              className={css.svgIcons}
-              src="/svg/city.svg"
-              alt=""
-              width="100"
-              height="100"
-            />
+            <Icon className={css.svgIcons} id="city" width="100" height="100" />
           </div>
           <p className={css.itemDescription}>{t("exploreDescription")}</p>
         </div>

@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import css from "./Advert.module.css";
 import { useEffect } from "react";
+import { Icon } from "../Icon/Icon";
 
 const Advert = ({ advert, onOpenModal }) => {
   const dispatch = useDispatch();
@@ -40,19 +41,9 @@ const Advert = ({ advert, onOpenModal }) => {
         />
         <div className={css.heartIcon} onClick={handleToggleLike}>
           {isLiked ? (
-            <img
-              src="/svg/yellowheart.svg"
-              alt="Yellow Heart"
-              width="25"
-              height="25"
-            />
+            <Icon id="yellowheart" width="25" height="25" />
           ) : (
-            <img
-              src="/svg/whiteheart.svg"
-              alt="White Heart"
-              width="25"
-              height="25"
-            />
+            <Icon id="whiteheart" width="25" height="25" />
           )}
         </div>
       </div>
