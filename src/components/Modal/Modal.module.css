@@ -149,6 +149,60 @@
 
 @media (max-width: 767px) {
   .modalContent {
+    width: 500px;
+    min-height: 250px;
+    top: calc(50% + 50px);
+    left: 50%;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .mainText {
+    font-size: 15px;
+  }
+
+  .mainWrap {
+    gap: 5px;
+  }
+
+  .additionalWrap {
+    gap: 5px;
+  }
+
+  .titleAdditional {
+    font-size: 17px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .imageWrapper {
+    width: 350px;
+    height: 150px;
+  }
+
+  .svgCar {
+    width: 350px;
+    height: 150px;
+  }
+
+  .closeButton {
+    top: 5px;
+    right: 25px;
+  }
+
+  .btnRent {
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 649px) {
+  .modalContent {
     width: 350px;
     min-height: 250px;
     top: calc(50% + 50px);
