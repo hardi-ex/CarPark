@@ -3,11 +3,14 @@ import { selectFilter } from "../filters/selectors";
 
 export const selectError = (state) => state.adverts.error;
 export const selectIsLoading = (state) => state.adverts.loading;
-export const selectAdvertsItems = (state) => state.adverts.items;
+export const selectAdvertsItems = (state) => state.adverts.items || [];
+export const selectPage = (state) => state.adverts.page;
+export const selectTotal = (state) => state.adverts.total;
 
 export const selectFilteredContacts = createSelector(
   [selectAdvertsItems, selectFilter],
   (adverts, filter) => {
+    if (!adverts) return [];
     return adverts.filter((advert) => {
       const matchCarBrand =
         !filter.carBrand ||

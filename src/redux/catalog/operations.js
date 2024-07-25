@@ -4,10 +4,15 @@ import toast from "react-hot-toast";
 
 export const getAdverts = createAsyncThunk(
   "adverts/getAdverts",
-  async (_, thunkAPI) => {
+  async ({ page = 1, limit = 12 }, thunkAPI) => {
     try {
-      const { data } = await axiosInstance.get("/Adverts");
-      return data;
+      const response = await axiosInstance.get(
+        `/Adverts?page=${page}&limit=${limit}`
+      );
+      return {
+        items: response.data,
+        total: parseInt(response.headers["x-total-count"], 10) || 100,
+      };
     } catch (error) {
       toast.error("Something went wrong. Please try again.");
       return thunkAPI.rejectWithValue(error.message);

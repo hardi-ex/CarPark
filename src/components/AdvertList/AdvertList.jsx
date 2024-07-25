@@ -1,11 +1,26 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAdverts } from "../../redux/catalog/operations";
+import { setPage } from "../../redux/catalog/slice";
+import { selectFilteredContacts } from "../../redux/catalog/selectors";
 import Advert from "../Advert/Advert";
 import Modal from "../Modal/Modal";
 import { useTranslation } from "react-i18next";
 import css from "./AdvertList.module.css";
+import {
+  selectIsLoading,
+  selectPage,
+  selectTotal,
+} from "../../redux/catalog/selectors";
 
-export const AdvertList = ({ adverts }) => {
+export const AdvertList = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const adverts = useSelector(selectFilteredContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const page = useSelector(selectPage);
+  const total = useSelector(selectTotal);
+
   const [selectedAdvert, setSelectedAdvert] = useState(null);
 
   const openModal = (advert) => {
@@ -16,9 +31,16 @@ export const AdvertList = ({ adverts }) => {
     setSelectedAdvert(null);
   };
 
+  const loadMore = () => {
+    if (!isLoading) {
+      dispatch(setPage(page + 1));
+      dispatch(getAdverts({ page: page + 1, limit: 12 }));
+    }
+  };
+
   return (
     <>
-      {adverts.length === 0 ? (
+      {adverts.length === 0 && !isLoading ? (
         <p className={css.noResults}>{t("noResults")}</p>
       ) : (
         <ul className={css.list}>
@@ -37,6 +59,15 @@ export const AdvertList = ({ adverts }) => {
           advert={selectedAdvert}
         />
       )}
+
+      <button onClick={loadMore} className={css.btnLoadMore}>
+        {t("loadMore")}
+      </button>
+      {/* {adverts.length < total && (
+        <button onClick={loadMore} className={css.loadMore}>
+          loadMore
+        </button>
+      )} */}
     </>
   );
 };

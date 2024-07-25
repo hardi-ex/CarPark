@@ -13,7 +13,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAdverts());
+    dispatch(getAdverts({ page: 1, limit: 12 }));
   }, [dispatch]);
 
   return (
@@ -55,4 +55,5 @@ export const App = () => {
     </Routes>
   );
 };
+
 export default App;
