@@ -60,14 +60,11 @@ export const AdvertList = () => {
         />
       )}
 
-      <button onClick={loadMore} className={css.btnLoadMore}>
-        {t("loadMore")}
-      </button>
-      {/* {adverts.length < total && (
-        <button onClick={loadMore} className={css.loadMore}>
-          loadMore
+      {adverts.length < total && (
+        <button onClick={loadMore} className={css.btnLoadMore}>
+          {t("loadMore")}
         </button>
-      )} */}
+      )}
     </>
   );
 };

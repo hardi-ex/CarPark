@@ -16,6 +16,9 @@ const slice = createSlice({
     setPage: (state, action) => {
       state.page = action.payload;
     },
+    resetPage: (state) => {
+      state.page = 1;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -42,5 +45,5 @@ const slice = createSlice({
   },
 });
 
-export const { setPage } = slice.actions;
+export const { setPage, resetPage } = slice.actions;
 export const advertsReducer = slice.reducer;

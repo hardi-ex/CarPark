@@ -4,6 +4,7 @@ import Layout from "./components/Layout/Layout";
 import { getAdverts } from "./redux/catalog/operations";
 import { useDispatch } from "react-redux";
 import { Loader } from "./components/Loader/Loader";
+import { resetPage } from "./redux/catalog/slice";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
@@ -13,6 +14,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(resetPage());
     dispatch(getAdverts({ page: 1, limit: 12 }));
   }, [dispatch]);
 
