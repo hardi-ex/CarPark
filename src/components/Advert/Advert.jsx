@@ -1,21 +1,32 @@
 import { useSelector, useDispatch } from "react-redux";
+import { addImage } from "../../redux/images/slice";
+import { selectImages } from "../../redux/images/selectors";
 import { toggleFavoriteOperation } from "../../redux/favorites/operations";
 import { isFavorite } from "../../redux/favorites/selectors";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useTranslation } from "react-i18next";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import css from "./Advert.module.css";
+import { useEffect } from "react";
 
 const Advert = ({ advert, onOpenModal }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const isLiked = useSelector((state) => isFavorite(state, advert.id));
+  const images = useSelector(selectImages);
+
+  useEffect(() => {
+    if (!images[advert.id]) {
+      dispatch(addImage({ id: advert.id, url: advert.img }));
+      console.log(`Added image: ${advert.img} for advert ID: ${advert.id}`);
+    }
+  }, [advert, images, dispatch]);
 
   const handleToggleLike = () => {
     dispatch(toggleFavoriteOperation(advert));
   };
 
-  const { year, img, rentalPrice, make, model, address, rentalCompany, type } =
+  const { year, rentalPrice, make, model, address, rentalCompany, type } =
     advert;
 
   return (
@@ -23,7 +34,7 @@ const Advert = ({ advert, onOpenModal }) => {
       <div className={css.imageWrapper}>
         <LazyLoadImage
           className={css.image}
-          src={img}
+          src={images[advert.id] || advert.img}
           alt={make}
           effect="blur"
         />

@@ -2,6 +2,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { advertsReducer } from "./catalog/slice";
 import { filteredReducer } from "./filters/slice";
 import { favoritesReducer } from "./favorites/slice";
+import { imagesReducer } from "./images/slice";
 import {
   persistStore,
   persistReducer,
@@ -18,13 +19,14 @@ const rootReducer = combineReducers({
   adverts: advertsReducer,
   filters: filteredReducer,
   favorites: favoritesReducer,
+  images: imagesReducer,
 });
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["adverts", "favorites"],
+  whitelist: ["adverts", "favorites", "images"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
