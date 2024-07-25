@@ -2,19 +2,14 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axiosInstance from "../../services/api";
 import toast from "react-hot-toast";
 
-export const getAdverts = createAsyncThunk(
-  "adverts/getAdverts",
-  async ({ page = 1, limit = 12 }, thunkAPI) => {
+export const getAllAdverts = createAsyncThunk(
+  "adverts/getAllAdverts",
+  async (_, thunkAPI) => {
     try {
-      const response = await axiosInstance.get(
-        `/Adverts?page=${page}&limit=${limit}`
-      );
-
-      const total = response.headers["x-total-count"];
+      const response = await axiosInstance.get(`/Adverts`);
 
       return {
-        items: response.data,
-        total: total ? parseInt(total, 10) : 32,
+        total: response.data.length,
       };
     } catch (error) {
       toast.error("Something went wrong. Please try again.");
@@ -23,17 +18,16 @@ export const getAdverts = createAsyncThunk(
   }
 );
 
-export const getAllAdverts = createAsyncThunk(
-  "adverts/getAllAdverts",
-  async (_, thunkAPI) => {
+export const getAdverts = createAsyncThunk(
+  "adverts/getAdverts",
+  async ({ page = 1, limit = 12 }, thunkAPI) => {
     try {
-      const response = await axiosInstance.get(`/Adverts`);
-
-      const total = response.headers["x-total-count"];
+      const response = await axiosInstance.get(
+        `/Adverts?page=${page}&limit=${limit}`
+      );
 
       return {
         items: response.data,
-        total: total ? parseInt(total, 10) : 32,
       };
     } catch (error) {
       toast.error("Something went wrong. Please try again.");

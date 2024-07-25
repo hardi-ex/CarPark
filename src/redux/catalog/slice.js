@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { getAdverts } from "./operations";
+import { getAdverts, getAllAdverts } from "./operations";
 import { createSelector } from "@reduxjs/toolkit";
 import { selectFilter } from "../filters/selectors";
 import { selectAdvertsItems } from "./selectors";
@@ -33,19 +33,30 @@ const slice = createSlice({
         } else {
           state.items = [...state.items, ...newAdverts];
         }
+      })
+      .addCase(getAllAdverts.fulfilled, (state, action) => {
         state.total = action.payload.total;
       })
-      .addMatcher(isAnyOf(getAdverts.pending), (state) => {
-        state.loading = true;
-      })
-      .addMatcher(isAnyOf(getAdverts.fulfilled), (state) => {
-        state.loading = false;
-        state.error = null;
-      })
-      .addMatcher(isAnyOf(getAdverts.rejected), (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      });
+      .addMatcher(
+        isAnyOf(getAdverts.pending, getAllAdverts.pending),
+        (state) => {
+          state.loading = true;
+        }
+      )
+      .addMatcher(
+        isAnyOf(getAdverts.fulfilled, getAllAdverts.fulfilled),
+        (state) => {
+          state.loading = false;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(getAdverts.rejected, getAllAdverts.rejected),
+        (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        }
+      );
   },
 });
 

@@ -1,7 +1,7 @@
 import { useEffect, Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-import { getAdverts } from "./redux/catalog/operations";
+import { getAdverts, getAllAdverts } from "./redux/catalog/operations";
 import { useDispatch } from "react-redux";
 import { Loader } from "./components/Loader/Loader";
 import { resetPage } from "./redux/catalog/slice";
@@ -15,6 +15,7 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(resetPage());
+    dispatch(getAllAdverts());
     dispatch(getAdverts({ page: 1, limit: 12 }));
   }, [dispatch]);
 
