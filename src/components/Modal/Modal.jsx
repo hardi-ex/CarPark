@@ -62,6 +62,7 @@ const Modal = ({ isOpen, onRequestClose, advert }) => {
           src={img}
           alt={make}
           effect="blur"
+          threshold={500}
         />
       </div>
       <h2 className={css.title}>

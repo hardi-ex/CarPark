@@ -17,6 +17,7 @@ export const Home = () => {
           width="1400"
           height="800"
           effect="blur"
+          threshold={500}
         />
       </div>
       <div className={css.content}>

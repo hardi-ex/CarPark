@@ -38,6 +38,7 @@ const Advert = ({ advert, onOpenModal }) => {
           src={images[advert.id] || advert.img}
           alt={make}
           effect="blur"
+          threshold={500}
         />
         <div className={css.heartIcon} onClick={handleToggleLike}>
           {isLiked ? (
