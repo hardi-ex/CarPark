@@ -9,9 +9,12 @@ export const getAdverts = createAsyncThunk(
       const response = await axiosInstance.get(
         `/Adverts?page=${page}&limit=${limit}`
       );
+
+      const total = response.headers["x-total-count"];
+
       return {
         items: response.data,
-        total: parseInt(response.headers["x-total-count"], 10) || 100,
+        total: total ? parseInt(total, 10) : 32,
       };
     } catch (error) {
       toast.error("Something went wrong. Please try again.");

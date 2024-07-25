@@ -18,6 +18,7 @@ const slice = createSlice({
     },
     resetPage: (state) => {
       state.page = 1;
+      state.total = 0;
     },
   },
   extraReducers: (builder) => {

@@ -12,6 +12,7 @@ import {
   selectPage,
   selectTotal,
 } from "../../redux/catalog/selectors";
+import Loader from "../Loader/Loader";
 
 export const AdvertList = () => {
   const { t } = useTranslation();
@@ -43,13 +44,17 @@ export const AdvertList = () => {
       {adverts.length === 0 && !isLoading ? (
         <p className={css.noResults}>{t("noResults")}</p>
       ) : (
-        <ul className={css.list}>
-          {adverts.map((advert) => (
-            <li key={advert.id} className={css.listItem}>
-              <Advert advert={advert} onOpenModal={openModal} />
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className={css.list}>
+            {adverts.map((advert) => (
+              <li key={advert.id} className={css.listItem}>
+                <Advert advert={advert} onOpenModal={openModal} />
+              </li>
+            ))}
+          </ul>
+
+          {isLoading && <Loader />}
+        </>
       )}
 
       {selectedAdvert && (
@@ -60,7 +65,7 @@ export const AdvertList = () => {
         />
       )}
 
-      {adverts.length < total && (
+      {adverts.length < total && !isLoading && (
         <button onClick={loadMore} className={css.btnLoadMore}>
           {t("loadMore")}
         </button>
