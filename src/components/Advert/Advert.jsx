@@ -19,7 +19,6 @@ const Advert = ({ advert, onOpenModal }) => {
   useEffect(() => {
     if (!images[advert.id]) {
       dispatch(addImage({ id: advert.id, url: advert.img }));
-      console.log(`Added image: ${advert.img} for advert ID: ${advert.id}`);
     }
   }, [advert, images, dispatch]);
 
