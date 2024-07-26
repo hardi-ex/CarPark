@@ -33,8 +33,6 @@ const slice = createSlice({
         } else {
           state.items = [...state.items, ...newAdverts];
         }
-      })
-      .addCase(getAllAdverts.fulfilled, (state, action) => {
         state.total = action.payload.total;
       })
       .addMatcher(
@@ -68,18 +66,17 @@ export const selectFilteredContacts = createSelector(
   (adverts, filter) => {
     if (!adverts) return [];
     return adverts.filter((advert) => {
-      const matchCarBrand =
-        !filter.carBrand ||
-        advert.make.toLowerCase().includes(filter.carBrand.toLowerCase());
+      const matchMake =
+        !filter.make ||
+        advert.make.toLowerCase().includes(filter.make.toLowerCase());
       const matchPrice =
-        !filter.price ||
-        parseFloat(advert.rentalPrice.replace("$", "")) <=
-          parseFloat(filter.price);
+        !filter.rentalPrice ||
+        parseFloat(advert.rentalPrice.replace("$", "")) < filter.rentalPrice;
       const matchMileageFrom =
-        !filter.mileageFrom || advert.mileage >= parseFloat(filter.mileageFrom);
+        !filter.mileageFrom || advert.mileage >= filter.mileageFrom;
       const matchMileageTo =
-        !filter.mileageTo || advert.mileage <= parseFloat(filter.mileageTo);
-      return matchCarBrand && matchPrice && matchMileageFrom && matchMileageTo;
+        !filter.mileageTo || advert.mileage <= filter.mileageTo;
+      return matchMake && matchPrice && matchMileageFrom && matchMileageTo;
     });
   }
 );

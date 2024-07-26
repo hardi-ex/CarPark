@@ -1,44 +1,34 @@
 import { Formik, Form, Field } from "formik";
-import { useDispatch } from "react-redux";
-import { changeFilter } from "../../redux/filters/slice";
 import css from "./SearchBox.module.css";
 import carMakes from "../../data/makes.json";
 import { useTranslation } from "react-i18next";
 
 const initialValues = {
-  carBrand: "",
-  price: "",
+  make: "",
+  rentalPrice: "",
   mileageFrom: "",
   mileageTo: "",
 };
 
 const mileageOptions = Array.from({ length: 11 }, (_, i) => 3000 + i * 500);
 
-const SearchBox = () => {
-  const dispatch = useDispatch();
+const SearchBox = ({ onSearch }) => {
   const { t } = useTranslation();
 
   const onSubmit = (values) => {
     const parsedValues = {
       ...values,
-      mileageFrom: values.mileageFrom
-        ? parseInt(values.mileageFrom.replace(/,/g, ""), 10)
-        : "",
-      mileageTo: values.mileageTo
-        ? parseInt(values.mileageTo.replace(/,/g, ""), 10)
-        : "",
+      rentalPrice: values.rentalPrice ? parseInt(values.rentalPrice, 10) : "",
+      mileageFrom: values.mileageFrom ? parseInt(values.mileageFrom, 10) : "",
+      mileageTo: values.mileageTo ? parseInt(values.mileageTo, 10) : "",
     };
 
-    Object.entries(parsedValues).forEach(([key, value]) => {
-      dispatch(changeFilter({ name: key, value }));
-    });
+    onSearch(parsedValues);
   };
 
   const onReset = (resetForm) => {
     resetForm();
-    Object.entries(initialValues).forEach(([key, value]) => {
-      dispatch(changeFilter({ name: key, value: initialValues[key] }));
-    });
+    onSearch(initialValues);
   };
 
   return (
@@ -46,14 +36,9 @@ const SearchBox = () => {
       {({ resetForm }) => (
         <Form className={css.searchForm}>
           <div className={css.formGroup}>
-            <label htmlFor="carBrand">{t("carBrand")}</label>
+            <label htmlFor="make">{t("carBrand")}</label>
             <div className={css.inputWrapper}>
-              <Field
-                as="select"
-                id="carBrand"
-                name="carBrand"
-                className={css.input}
-              >
+              <Field as="select" id="make" name="make" className={css.input}>
                 <option value="">{t("selectBrand")}</option>
                 {carMakes.map((make) => (
                   <option key={make} value={make}>
@@ -64,9 +49,14 @@ const SearchBox = () => {
             </div>
           </div>
           <div className={css.formGroup}>
-            <label htmlFor="price">{t("pricePerHour")}</label>
+            <label htmlFor="rentalPrice">{t("pricePerHour")}</label>
             <div className={css.inputWrapper}>
-              <Field as="select" id="price" name="price" className={css.input}>
+              <Field
+                as="select"
+                id="rentalPrice"
+                name="rentalPrice"
+                className={css.input}
+              >
                 <option value="">{t("selectPriceRange")}</option>
                 {Array.from({ length: 50 }, (_, i) => 30 + i * 10).map(
                   (price) => (

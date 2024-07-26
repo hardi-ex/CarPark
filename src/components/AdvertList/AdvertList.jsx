@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdverts } from "../../redux/catalog/operations";
 import { setPage } from "../../redux/catalog/slice";
+import {
+  selectPage,
+  selectTotal,
+  selectIsLoading,
+} from "../../redux/catalog/selectors";
 import { selectFilteredContacts } from "../../redux/catalog/slice";
 import Advert from "../Advert/Advert";
 import Modal from "../Modal/Modal";
-import { useTranslation } from "react-i18next";
-import css from "./AdvertList.module.css";
-import {
-  selectIsLoading,
-  selectPage,
-  selectTotal,
-} from "../../redux/catalog/selectors";
 import Loader from "../Loader/Loader";
+import css from "./AdvertList.module.css";
+import { useTranslation } from "react-i18next";
 
-export const AdvertList = () => {
+export const AdvertList = ({ filters }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const adverts = useSelector(selectFilteredContacts);
@@ -23,6 +23,11 @@ export const AdvertList = () => {
   const total = useSelector(selectTotal);
 
   const [selectedAdvert, setSelectedAdvert] = useState(null);
+
+  useEffect(() => {
+    dispatch(getAdverts({ page: 1, limit: 12, filters }));
+    dispatch(setPage(1));
+  }, [filters, dispatch]);
 
   const openModal = (advert) => {
     setSelectedAdvert(advert);
@@ -35,7 +40,7 @@ export const AdvertList = () => {
   const loadMore = () => {
     if (!isLoading) {
       dispatch(setPage(page + 1));
-      dispatch(getAdverts({ page: page + 1, limit: 12 }));
+      dispatch(getAdverts({ page: page + 1, limit: 12, filters }));
     }
   };
 
@@ -52,11 +57,9 @@ export const AdvertList = () => {
               </li>
             ))}
           </ul>
-
           {isLoading && <Loader />}
         </>
       )}
-
       {selectedAdvert && (
         <Modal
           isOpen={!!selectedAdvert}
@@ -64,7 +67,6 @@ export const AdvertList = () => {
           advert={selectedAdvert}
         />
       )}
-
       {adverts.length < total && !isLoading && (
         <button onClick={loadMore} className={css.btnLoadMore}>
           {t("loadMore")}
