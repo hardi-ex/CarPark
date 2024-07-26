@@ -67,7 +67,7 @@ export const AdvertList = ({ filters }) => {
           advert={selectedAdvert}
         />
       )}
-      {adverts.length < total && !isLoading && (
+      {adverts.length < total && !isLoading && adverts.length > 0 && (
         <button onClick={loadMore} className={css.btnLoadMore}>
           {t("loadMore")}
         </button>
