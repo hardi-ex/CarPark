@@ -34,11 +34,9 @@ CarRental is a web application designed for car rental services in Ukraine. This
 
 `npm start`
 
-The application will be available at http://localhost
-
 ## Usage
 
-Navigate to http://localhost to access the application.
+Navigate to the address to access the application.
 Browse the catalog of cars, filter by various criteria, and mark cars as favorites.
 Click on a car to view detailed information.
 Use the navigation menu to switch between Home, Catalog, and Favorites.
@@ -51,6 +49,7 @@ src/
 │ ├── Advert/
 │ ├── AdvertList/
 │ ├── Catalog/
+│ ├── CustomSelect/
 │ ├── Favorites/
 │ ├── Home/
 │ ├── Layout/
@@ -95,6 +94,10 @@ Lists all adverts and handles opening of modals for detailed views.
 # Catalog
 
 Displays the car catalog with filtering options.
+
+# CustomSelect
+
+Provides a dropdown menu for filtering the car catalog.
 
 # Favorites
 
