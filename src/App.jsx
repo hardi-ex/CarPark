@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import { Loader } from "./components/Loader/Loader";
 
@@ -48,7 +48,7 @@ export const App = () => {
         path="*"
         element={
           <Suspense fallback={<Loader />}>
-            <HomePage />
+            <Navigate to="/" />
           </Suspense>
         }
       />
