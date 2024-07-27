@@ -5,6 +5,67 @@
   gap: 40px;
 }
 
+.filtersButton {
+  display: none;
+  padding: 10px 20px;
+  background-color: var(--light-gray);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+  margin: 0 auto;
+}
+
+.filtersButton:hover,
+.filtersButton:focus {
+  background-color: var(--dark-gray);
+  outline: none;
+}
+
+.filtersButton:active {
+  background-color: var(--black);
+}
+
+.searchBox {
+  display: flex;
+}
+
+.searchBox.hide {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .catalog {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .filtersButton {
+    display: block;
+  }
+
+  .searchBox.hide {
+    display: none;
+  }
+
+  .searchBox.show {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .filtersButton {
+    display: none;
+  }
+
+  .catalog .searchBox {
+    display: flex;
+  }
+}
+
 @media (max-width: 767px) {
   .catalog {
     margin-top: 110px;

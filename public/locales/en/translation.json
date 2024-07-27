@@ -50,5 +50,7 @@
   "reset": "Reset",
   "langEn": "English",
   "langUa": "Ukrainian",
-  "loadMore": "Load more"
+  "loadMore": "Load more",
+  "hideFilters": "Hide filters",
+  "showFilters": "Show filters"
 }
