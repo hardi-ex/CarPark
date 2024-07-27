@@ -96,7 +96,7 @@ const Modal = ({ isOpen, onRequestClose, advert }) => {
         </p>
         <p className={css.text}>
           <span className={css.mainText}>{t("rentalConditions")}: </span>
-          {rentalConditions}
+          {rentalConditions.replace(/\n/g, ". ") + "."}
         </p>
       </div>
 
@@ -104,8 +104,8 @@ const Modal = ({ isOpen, onRequestClose, advert }) => {
         <h3 className={css.titleAdditional}>
           {t("accessoriesFunctionalities")}:{" "}
         </h3>
-        <p className={css.text}>{accessories.join(" | ")}</p>
-        <p className={css.text}>{functionalities.join(" | ")}</p>
+        <p className={css.text}>{accessories.join(". ") + "."}</p>
+        <p className={css.text}>{functionalities.join(". ") + "."}</p>
       </div>
 
       <div className={css.additionalWrap}>
