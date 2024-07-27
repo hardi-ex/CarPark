@@ -5,6 +5,7 @@ import Layout from "./components/Layout/Layout";
 import { Loader } from "./components/Loader/Loader";
 
 import { getAllAdverts } from "./redux/catalog/operations";
+import { getFavoriteAdverts } from "./redux/favorites/operations";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
@@ -14,8 +15,14 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllAdverts());
+    const fetchAdverts = async () => {
+      await dispatch(getAllAdverts());
+      dispatch(getFavoriteAdverts());
+    };
+
+    fetchAdverts();
   }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAllAdverts } from "./operations";
+import { getFavoriteAdverts } from "../favorites/operations";
 
 const initialState = {
   items: [],
@@ -39,6 +40,9 @@ const advertsSlice = createSlice({
       .addCase(getAllAdverts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(getFavoriteAdverts.fulfilled, (state, action) => {
+        state.favorites = action.payload;
       });
   },
 });

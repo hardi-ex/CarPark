@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getFavoriteAdverts } from "./operations";
 
 const favoritesSlice = createSlice({
   name: "favorites",
@@ -12,6 +13,11 @@ const favoritesSlice = createSlice({
         return [...state, action.payload];
       }
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getFavoriteAdverts.fulfilled, (state, action) => {
+      return action.payload;
+    });
   },
 });
 
