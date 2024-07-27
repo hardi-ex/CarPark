@@ -10,6 +10,7 @@ CarPark is a web application designed for car rental services in Ukraine. This a
 - [Project Structure](#project-structure)
 - [Components](#components)
 - [State Management](#state-management)
+- [Technologies and Libraries](#technologies-and-libraries)
 
 ## Features
 
@@ -48,6 +49,7 @@ src/
 ├── components/
 │ ├── Advert/
 │ ├── AdvertList/
+│ ├── AnimatedFab/
 │ ├── Catalog/
 │ ├── CustomSelect/
 │ ├── Favorites/
@@ -90,6 +92,10 @@ Displays individual car information, including an image and details. Allows user
 # AdvertList
 
 Lists all adverts and handles opening of modals for detailed views.
+
+# AnimatedFab
+
+Provides a floating action button that allows users to mark cars as favorites.
 
 # Catalog
 
@@ -137,6 +143,25 @@ State management is handled using Redux. The state is divided into slices:
 - images: Manages the images of the cars.
 
 redux-persist is used to ensure that the state is persisted across sessions, so user preferences and favorites are retained even after refreshing the page.
+
+## Technologies and Libraries
+
+The project utilizes the following technologies and libraries:
+
+- React: A JavaScript library for building user interfaces.
+- Redux: A predictable state container for JavaScript apps.
+- redux-persist: Persist and rehydrate a Redux store.
+- react-redux: Official React bindings for Redux.
+- react-router-dom: DOM bindings for React Router.
+- react-i18next: Internationalization framework for React.
+- react-lazy-load-image-component: Lazy load images in React.
+- framer-motion: A library for creating animations in React.
+- @mui/material: Material-UI components for React.
+- axios: Promise-based HTTP client for the browser and node.js.
+- formik: Build forms in React, without the tears.
+- react-select: A flexible and beautiful Select Input control for React.
+- react-hot-toast: Smoking hot notifications for React.
+- react-modal: Accessible modal dialog component for React.
 
 ## Thank you for your attention!
 
