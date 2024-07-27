@@ -1,6 +1,7 @@
 import { useField, useFormikContext } from "formik";
 import Select from "react-select";
 import css from "./CustomSelect.module.css";
+import { useTranslation } from "react-i18next";
 
 const customStyles = {
   control: (provided, state) => ({
@@ -67,15 +68,16 @@ const CustomSelect = ({ label, type, ...props }) => {
   const { setValue } = helpers;
   const { values } = useFormikContext();
   const id = `select-${props.name}`;
+  const { t } = useTranslation();
 
   const formatOptionLabel = (data) => {
     const formattedLabel = numberWithCommas(data.label);
     if (type === "price") {
-      return `To $${formattedLabel}`;
+      return `${t("to")} $${formattedLabel}`;
     } else if (type === "mileage" && props.name === "mileageFrom") {
-      return `From ${formattedLabel} km`;
+      return `${t("from")} ${formattedLabel} ${t("km")}`;
     } else if (type === "mileage" && props.name === "mileageTo") {
-      return `To ${formattedLabel} km`;
+      return `${t("to")} ${formattedLabel} ${t("km")}`;
     }
     return formattedLabel;
   };

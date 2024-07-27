@@ -10,7 +10,7 @@ const AnimatedFab = () => {
   const [showCloseIcon, setShowCloseIcon] = useState(false);
 
   const handleClick = () => {
-    window.location.href = "+380730000000";
+    window.location.href = "tel:+380730000000";
   };
 
   const handleClose = () => {
