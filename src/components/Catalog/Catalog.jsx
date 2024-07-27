@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import AnimatedFab from "../AnimatedFab/AnimatedFab";
 import AdvertList from "../AdvertList/AdvertList";
 import SearchBox from "../SearchBox/SearchBox";
 import css from "./Catalog.module.css";
@@ -27,6 +28,7 @@ export const Catalog = () => {
         <SearchBox onSearch={handleSearch} />
       </div>
       <AdvertList filters={filters} />
+      <AnimatedFab />
     </div>
   );
 };
