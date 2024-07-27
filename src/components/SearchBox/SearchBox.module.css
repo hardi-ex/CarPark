@@ -12,6 +12,21 @@
   flex-direction: column;
 }
 
+.mainWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 .buttonGroup {
   display: flex;
   gap: 10px;
@@ -43,4 +58,32 @@ label {
   color: var(--light-gray);
   margin-bottom: 5px;
   text-align: center;
+}
+
+@media (max-width: 1099px) {
+  .searchForm {
+    flex-direction: column;
+  }
+
+  .buttonGroup {
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 649px) {
+  .searchForm {
+    flex-direction: column;
+  }
+
+  .buttonGroup {
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
 }

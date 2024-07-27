@@ -18,7 +18,7 @@ const mileageOptions = Array.from({ length: 11 }, (_, i) => ({
 
 const priceOptions = Array.from({ length: 50 }, (_, i) => ({
   value: 30 + i * 10,
-  label: `Up to $${30 + i * 10}`,
+  label: (30 + i * 10).toLocaleString("en-US"),
 }));
 
 const SearchBox = ({ onSearch }) => {
@@ -46,30 +46,41 @@ const SearchBox = ({ onSearch }) => {
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ resetForm }) => (
         <Form className={css.searchForm}>
-          <CustomSelect
-            label={t("carBrand")}
-            name="make"
-            options={carMakeOptions}
-            placeholder={t("selectBrand")}
-          />
-          <CustomSelect
-            label={t("pricePerHour")}
-            name="rentalPrice"
-            options={priceOptions}
-            placeholder={t("selectPriceRange")}
-          />
-          <CustomSelect
-            label={t("mileageFrom")}
-            name="mileageFrom"
-            options={mileageOptions}
-            placeholder={t("from")}
-          />
-          <CustomSelect
-            label={t("mileageTo")}
-            name="mileageTo"
-            options={mileageOptions}
-            placeholder={t("to")}
-          />
+          <div className={css.mainWrapper}>
+            <div className={css.wrapper}>
+              <CustomSelect
+                label={t("carBrand")}
+                name="make"
+                options={carMakeOptions}
+                placeholder={t("selectBrand")}
+              />
+              <CustomSelect
+                label={t("pricePerHour")}
+                name="rentalPrice"
+                options={priceOptions}
+                placeholder={t("selectPriceRange")}
+                type="price"
+              />
+            </div>
+
+            <div className={css.wrapper}>
+              <CustomSelect
+                label={t("mileageFrom")}
+                name="mileageFrom"
+                options={mileageOptions}
+                placeholder={t("from")}
+                type="mileage"
+              />
+              <CustomSelect
+                label="&nbsp;"
+                name="mileageTo"
+                options={mileageOptions}
+                placeholder={t("to")}
+                type="mileage"
+              />
+            </div>
+          </div>
+
           <div className={css.buttonGroup}>
             <button type="submit" className={css.searchButton}>
               {t("search")}

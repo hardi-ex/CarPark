@@ -1,11 +1,13 @@
 :root {
   --super-light-gray: #3d3d3d;
   --light-gray: #2b2b2b;
+  --gray: #222122;
   --dark-gray: #1e1b1c;
   --black: #000000;
   --white: #ffffff;
   --light-white: #dddddd;
   --super-light-white: rgb(221, 221, 221);
+  --super-light-gray: #6e6e6e;
 }
 
 body {
@@ -54,4 +56,18 @@ img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--super-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray);
+  border-radius: 10px;
+  border: 1px solid var(--gray);
 }
