@@ -19,7 +19,7 @@ export const Navigation = () => {
     <header className={css.header}>
       <div className={css.logo}>
         <Icon id="logo" width="60" height="60" />
-        <h1>CarRental</h1>
+        <h1>CarPark</h1>
       </div>
       <ul>
         <li>

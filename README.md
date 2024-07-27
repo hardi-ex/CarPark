@@ -1,6 +1,6 @@
-### CarRental Project
+### CarPark Project
 
-CarRental is a web application designed for car rental services in Ukraine. This application allows users to browse through a catalog of available vehicles, view details, and mark their favorite cars. The application is built using React and Redux, and it leverages `redux-persist` for state persistence, ensuring that user preferences are retained across sessions.
+CarPark is a web application designed for car rental services in Ukraine. This application allows users to browse through a catalog of available vehicles, view details, and mark their favorite cars. The application is built using React and Redux, and it leverages `redux-persist` for state persistence, ensuring that user preferences are retained across sessions.
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@ CarRental is a web application designed for car rental services in Ukraine. This
 
 1. **Clone the repository:**
 
-   ` bash git clone https://github.com/hardi-ex/CarRental.git cd CarRental`
+   ` bash git clone https://github.com/hardi-ex/CarPark.git cd CarPark`
 
 2. **Install dependencies:**
 
@@ -140,4 +140,4 @@ redux-persist is used to ensure that the state is persisted across sessions, so 
 
 ## Thank you for your attention!
 
-I hope you find CarRental useful and convenient.
+I hope you find CarPark useful and convenient.
