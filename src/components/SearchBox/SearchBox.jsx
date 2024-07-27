@@ -1,7 +1,8 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import css from "./SearchBox.module.css";
 import carMakes from "../../data/makes.json";
 import { useTranslation } from "react-i18next";
+import CustomSelect from "../CustomSelect/CustomSelect";
 
 const initialValues = {
   make: "",
@@ -10,7 +11,15 @@ const initialValues = {
   mileageTo: "",
 };
 
-const mileageOptions = Array.from({ length: 11 }, (_, i) => 3000 + i * 500);
+const mileageOptions = Array.from({ length: 11 }, (_, i) => ({
+  value: 3000 + i * 500,
+  label: (3000 + i * 500).toLocaleString("en-US"),
+}));
+
+const priceOptions = Array.from({ length: 50 }, (_, i) => ({
+  value: 30 + i * 10,
+  label: `Up to $${30 + i * 10}`,
+}));
 
 const SearchBox = ({ onSearch }) => {
   const { t } = useTranslation();
@@ -31,74 +40,36 @@ const SearchBox = ({ onSearch }) => {
     onSearch(initialValues);
   };
 
+  const carMakeOptions = carMakes.map((make) => ({ value: make, label: make }));
+
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ resetForm }) => (
         <Form className={css.searchForm}>
-          <div className={css.formGroup}>
-            <label htmlFor="make">{t("carBrand")}</label>
-            <div className={css.inputWrapper}>
-              <Field as="select" id="make" name="make" className={css.input}>
-                <option value="">{t("selectBrand")}</option>
-                {carMakes.map((make) => (
-                  <option key={make} value={make}>
-                    {make}
-                  </option>
-                ))}
-              </Field>
-            </div>
-          </div>
-          <div className={css.formGroup}>
-            <label htmlFor="rentalPrice">{t("pricePerHour")}</label>
-            <div className={css.inputWrapper}>
-              <Field
-                as="select"
-                id="rentalPrice"
-                name="rentalPrice"
-                className={css.input}
-              >
-                <option value="">{t("selectPriceRange")}</option>
-                {Array.from({ length: 50 }, (_, i) => 30 + i * 10).map(
-                  (price) => (
-                    <option key={price} value={price}>
-                      {t("upTo")} ${price}
-                    </option>
-                  )
-                )}
-              </Field>
-            </div>
-          </div>
-          <div className={css.formGroup}>
-            <label htmlFor="mileageFrom">{t("mileageFrom")}</label>
-            <div className={css.inputWrapper}>
-              <Field
-                as="select"
-                id="mileageFrom"
-                name="mileageFrom"
-                className={css.input}
-              >
-                <option value="">{t("from")}</option>
-                {mileageOptions.map((mileage) => (
-                  <option key={mileage} value={mileage}>
-                    {t("from")} {mileage.toLocaleString("en-US")}
-                  </option>
-                ))}
-              </Field>
-              <Field
-                as="select"
-                id="mileageTo"
-                name="mileageTo"
-                className={css.input}
-              >
-                <option value="">{t("to")}</option>
-                {mileageOptions.map((mileage) => (
-                  <option key={mileage} value={mileage + 500}>
-                    {t("to")} {(mileage + 500).toLocaleString("en-US")}
-                  </option>
-                ))}
-              </Field>
-            </div>
-          </div>
+          <CustomSelect
+            label={t("carBrand")}
+            name="make"
+            options={carMakeOptions}
+            placeholder={t("selectBrand")}
+          />
+          <CustomSelect
+            label={t("pricePerHour")}
+            name="rentalPrice"
+            options={priceOptions}
+            placeholder={t("selectPriceRange")}
+          />
+          <CustomSelect
+            label={t("mileageFrom")}
+            name="mileageFrom"
+            options={mileageOptions}
+            placeholder={t("from")}
+          />
+          <CustomSelect
+            label={t("mileageTo")}
+            name="mileageTo"
+            options={mileageOptions}
+            placeholder={t("to")}
+          />
           <div className={css.buttonGroup}>
             <button type="submit" className={css.searchButton}>
               {t("search")}
