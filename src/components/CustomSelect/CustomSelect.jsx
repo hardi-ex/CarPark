@@ -58,23 +58,26 @@ const customStyles = {
   }),
 };
 
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 const CustomSelect = ({ label, type, ...props }) => {
   const [field, , helpers] = useField(props);
   const { setValue } = helpers;
   const { values } = useFormikContext();
   const id = `select-${props.name}`;
 
-  const formatSingleValue = (data) => {
-    return data.label;
-  };
-
   const formatOptionLabel = (data) => {
+    const formattedLabel = numberWithCommas(data.label);
     if (type === "price") {
-      return `$${data.label}`;
-    } else if (type === "mileage") {
-      return `${data.label} km`;
+      return `To $${formattedLabel}`;
+    } else if (type === "mileage" && props.name === "mileageFrom") {
+      return `From ${formattedLabel} km`;
+    } else if (type === "mileage" && props.name === "mileageTo") {
+      return `To ${formattedLabel} km`;
     }
-    return data.label;
+    return formattedLabel;
   };
 
   return (
@@ -88,7 +91,10 @@ const CustomSelect = ({ label, type, ...props }) => {
         formatOptionLabel={formatOptionLabel}
         value={
           values[props.name]
-            ? { label: values[props.name], value: values[props.name] }
+            ? {
+                label: numberWithCommas(values[props.name]),
+                value: values[props.name],
+              }
             : null
         }
         onChange={(option) => setValue(option ? option.value : "")}

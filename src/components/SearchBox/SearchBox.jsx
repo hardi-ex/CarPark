@@ -13,12 +13,12 @@ const initialValues = {
 
 const mileageOptions = Array.from({ length: 11 }, (_, i) => ({
   value: 3000 + i * 500,
-  label: (3000 + i * 500).toLocaleString("en-US"),
+  label: (3000 + i * 500).toString(),
 }));
 
 const priceOptions = Array.from({ length: 50 }, (_, i) => ({
   value: 30 + i * 10,
-  label: (30 + i * 10).toLocaleString("en-US"),
+  label: (30 + i * 10).toString(),
 }));
 
 const SearchBox = ({ onSearch }) => {
