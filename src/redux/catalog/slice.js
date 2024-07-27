@@ -1,8 +1,5 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { getAdverts } from "./operations";
-import { createSelector } from "@reduxjs/toolkit";
-import { selectFilter } from "../filters/selectors";
-import { selectAdvertsItems } from "./selectors";
+import { createSlice } from "@reduxjs/toolkit";
+import { getAllAdverts } from "./operations";
 
 const initialState = {
   items: [],
@@ -10,14 +7,18 @@ const initialState = {
   error: null,
   page: 1,
   total: 0,
+  filters: {},
 };
 
-const slice = createSlice({
+const advertsSlice = createSlice({
   name: "adverts",
   initialState,
   reducers: {
     setPage: (state, action) => {
       state.page = action.payload;
+    },
+    setFilters: (state, action) => {
+      state.filters = action.payload;
     },
     resetPage: (state) => {
       state.page = 1;
@@ -26,48 +27,21 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getAdverts.fulfilled, (state, action) => {
-        const newAdverts = action.payload.items || [];
-        if (action.meta.arg.page === 1) {
-          state.items = newAdverts;
-        } else {
-          state.items = [...state.items, ...newAdverts];
-        }
-        state.total = action.payload.total;
-      })
-      .addMatcher(isAnyOf(getAdverts.pending), (state) => {
-        state.loading = true;
-      })
-      .addMatcher(isAnyOf(getAdverts.fulfilled), (state) => {
+      .addCase(getAllAdverts.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.total = action.payload.length;
         state.loading = false;
         state.error = null;
       })
-      .addMatcher(isAnyOf(getAdverts.rejected), (state, action) => {
+      .addCase(getAllAdverts.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getAllAdverts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
   },
 });
 
-export const { setPage, resetPage } = slice.actions;
-export const advertsReducer = slice.reducer;
-
-export const selectFilteredContacts = createSelector(
-  [selectAdvertsItems, selectFilter],
-  (adverts, filter) => {
-    if (!adverts) return [];
-    return adverts.filter((advert) => {
-      const matchMake =
-        !filter.make ||
-        advert.make.toLowerCase().includes(filter.make.toLowerCase());
-      const matchPrice =
-        !filter.rentalPrice ||
-        parseFloat(advert.rentalPrice.replace("$", "")) < filter.rentalPrice;
-      const matchMileageFrom =
-        !filter.mileageFrom || advert.mileage >= filter.mileageFrom;
-      const matchMileageTo =
-        !filter.mileageTo || advert.mileage <= filter.mileageTo;
-      return matchMake && matchPrice && matchMileageFrom && matchMileageTo;
-    });
-  }
-);
+export const { setPage, setFilters, resetPage } = advertsSlice.actions;
+export const advertsReducer = advertsSlice.reducer;

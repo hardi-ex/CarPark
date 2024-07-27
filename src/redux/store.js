@@ -1,8 +1,4 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { advertsReducer } from "./catalog/slice";
-import { filteredReducer } from "./filters/slice";
-import { favoritesReducer } from "./favorites/slice";
-import { imagesReducer } from "./images/slice";
 import {
   persistStore,
   persistReducer,
@@ -14,6 +10,10 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { advertsReducer } from "./catalog/slice";
+import { filteredReducer } from "./filters/slice";
+import { favoritesReducer } from "./favorites/slice";
+import { imagesReducer } from "./images/slice";
 
 const rootReducer = combineReducers({
   adverts: advertsReducer,

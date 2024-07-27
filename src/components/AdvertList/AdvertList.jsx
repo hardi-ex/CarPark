@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAdverts } from "../../redux/catalog/operations";
-import { setPage } from "../../redux/catalog/slice";
 import {
-  selectPage,
-  selectTotal,
   selectIsLoading,
+  selectPage,
+  selectFilteredAdverts,
 } from "../../redux/catalog/selectors";
-import { selectFilteredContacts } from "../../redux/catalog/slice";
+import { setPage, setFilters } from "../../redux/catalog/slice";
 import Advert from "../Advert/Advert";
 import Modal from "../Modal/Modal";
 import Loader from "../Loader/Loader";
@@ -17,15 +15,13 @@ import { useTranslation } from "react-i18next";
 export const AdvertList = ({ filters }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const adverts = useSelector(selectFilteredContacts);
+  const adverts = useSelector(selectFilteredAdverts);
   const isLoading = useSelector(selectIsLoading);
   const page = useSelector(selectPage);
-  const total = useSelector(selectTotal);
-
   const [selectedAdvert, setSelectedAdvert] = useState(null);
 
   useEffect(() => {
-    dispatch(getAdverts({ page: 1, limit: 12, filters }));
+    dispatch(setFilters(filters));
     dispatch(setPage(1));
   }, [filters, dispatch]);
 
@@ -40,7 +36,6 @@ export const AdvertList = ({ filters }) => {
   const loadMore = () => {
     if (!isLoading) {
       dispatch(setPage(page + 1));
-      dispatch(getAdverts({ page: page + 1, limit: 12, filters }));
     }
   };
 
@@ -51,7 +46,7 @@ export const AdvertList = ({ filters }) => {
       ) : (
         <>
           <ul className={css.list}>
-            {adverts.map((advert) => (
+            {adverts.slice(0, page * 12).map((advert) => (
               <li key={advert.id} className={css.listItem}>
                 <Advert advert={advert} onOpenModal={openModal} />
               </li>
@@ -67,7 +62,7 @@ export const AdvertList = ({ filters }) => {
           advert={selectedAdvert}
         />
       )}
-      {adverts.length < total && !isLoading && adverts.length > 0 && (
+      {adverts.length > page * 12 && (
         <button onClick={loadMore} className={css.btnLoadMore}>
           {t("loadMore")}
         </button>
