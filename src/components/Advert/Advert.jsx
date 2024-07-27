@@ -38,19 +38,18 @@ const Advert = ({ advert, onOpenModal }) => {
           alt={make}
           effect="blur"
           threshold={500}
+          placeholderSrc={`${images[advert.id] || advert.img}?quality=low`}
         />
         <div className={css.heartIcon} onClick={handleToggleLike}>
-          {isLiked ? (
-            <Icon id="yellowheart" width="25" height="25" />
-          ) : (
-            <Icon id="whiteheart" width="25" height="25" />
-          )}
+          <Icon
+            id={isLiked ? "yellowheart" : "whiteheart"}
+            width="25"
+            height="25"
+          />
         </div>
       </div>
       <div className={css.details}>
-        <h4 className={css.title}>
-          {make}&nbsp;{model},&nbsp;{year}
-        </h4>
+        <h4 className={css.title}>{`${make} ${model}, ${year}`}</h4>
         <p className={css.price}>{rentalPrice}</p>
         <p className={css.info}>
           <span className={css.spanInfo}>{t("type")}: </span>

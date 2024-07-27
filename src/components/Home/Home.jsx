@@ -12,11 +12,12 @@ export const Home = () => {
       <div className={css.imageWrapper}>
         <LazyLoadImage
           className={css.bgPhoto}
-          src="/bgphoto.png"
+          src="/bgphoto.jpg"
           alt="Car"
           width="1400"
           height="800"
-          effect="blur"
+          // effect="blur"
+          placeholderSrc="/bgphoto-low.jpg"
           threshold={500}
         />
       </div>
