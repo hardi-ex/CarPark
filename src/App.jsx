@@ -55,7 +55,7 @@ export const App = () => {
         path="*"
         element={
           <Suspense fallback={<Loader />}>
-            <Navigate to="/" />
+            <Navigate to="/" replace/>
           </Suspense>
         }
       />
