@@ -15,7 +15,7 @@ export const Home = () => {
       <div className={css.imageWrapper}>
         <LazyLoadImage
           className={css.bgPhoto}
-          src="/bgphoto.jpg"
+          src="/bgphoto.webp"
           alt="Car"
           width="1400"
           height="800"
