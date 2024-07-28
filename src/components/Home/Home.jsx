@@ -17,9 +17,7 @@ export const Home = () => {
           className={css.bgPhoto}
           src="/bgphoto.webp"
           alt="Car"
-          width="1400"
-          height="800"
-          placeholderSrc="/bgphoto-low.jpg"
+          placeholderSrc="/bgphoto-low.webp"
           afterLoad={() => setImageLoaded(true)}
         />
         {imageLoaded && (
