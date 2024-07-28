@@ -75,9 +75,9 @@ const CustomSelect = ({ label, type, ...props }) => {
     if (type === "price") {
       return `${t("to")} $${formattedLabel}`;
     } else if (type === "mileage" && props.name === "mileageFrom") {
-      return `${t("from")} ${formattedLabel} ${t("km")}`;
+      return `${t("from")} ${formattedLabel}`;
     } else if (type === "mileage" && props.name === "mileageTo") {
-      return `${t("to")} ${formattedLabel} ${t("km")}`;
+      return `${t("to")} ${formattedLabel}`;
     }
     return formattedLabel;
   };
