@@ -2,10 +2,13 @@ import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Icon } from "../Icon/Icon";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { motion } from "framer-motion";
 import css from "./Home.module.css";
+import { useState } from "react";
 
 export const Home = () => {
   const { t } = useTranslation();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <div className={css.container}>
@@ -16,10 +19,19 @@ export const Home = () => {
           alt="Car"
           width="1400"
           height="800"
-          // effect="blur"
           placeholderSrc="/bgphoto-low.jpg"
-          threshold={500}
+          afterLoad={() => setImageLoaded(true)}
         />
+        {imageLoaded && (
+          <motion.div
+            initial={{ opacity: 0, z: 0 }}
+            animate={{ opacity: 1, z: 1 }}
+            transition={{ duration: 1.8, ease: "easeInOut" }}
+            className={css.overlay}
+          >
+            <h1 className={css.overlayText}>CarPark</h1>
+          </motion.div>
+        )}
       </div>
       <div className={css.content}>
         <div className={css.section}>
