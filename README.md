@@ -25,7 +25,7 @@ CarPark is a web application designed for car rental services in Ukraine. This a
 
 1. **Clone the repository:**
 
-   ` bash git clone https://github.com/hardi-ex/CarPark.git cd CarPark`
+` bash git clone https://github.com/hardi-ex/CarPark.git cd CarPark`
 
 2. **Install dependencies:**
 
@@ -44,9 +44,9 @@ Use the navigation menu to switch between Home, Catalog, and Favorites.
 
 ## Project Structure
 
-- src/
+--src/
 
- - components/
+--components/
 
 Advert/
 
@@ -72,11 +72,11 @@ Navigation/
 
 SearchBox/
 
-- data/
+-data/
 
 makes.json
 
-- pages/
+--pages/
 
 CatalogPage/
 
@@ -84,7 +84,7 @@ FavoritesPage/
 
 HomePage/
 
-- redux/
+--redux/
 
 catalog/
 
@@ -96,14 +96,14 @@ images/
 
 store.js
 
-- services/
+--services/
 
 api.js
 
-- App.jsx
-- index.css
-- main.jsx
-- i18n.js
+--App.jsx
+--index.css
+--main.jsx
+--i18n.js
 
 ## Components
 

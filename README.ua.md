@@ -25,7 +25,7 @@ CarPark — це веб-застосунок, розроблений для се
 
 1. **Клонуйте репозиторій:**
 
-   ` bash git clone https://github.com/hardi-ex/CarPark.git cd CarPark`
+` bash git clone https://github.com/hardi-ex/CarPark.git cd CarPark`
 
 2. **Встановіть залежності:**
 
@@ -44,9 +44,9 @@ CarPark — це веб-застосунок, розроблений для се
 
 ## Структура проекту
 
-- src/
+--src/
 
- - components/
+--components/
 
 Advert/
 
@@ -72,11 +72,11 @@ Navigation/
 
 SearchBox/
 
-- data/
+-data/
 
 makes.json
 
-- pages/
+--pages/
 
 CatalogPage/
 
@@ -84,7 +84,7 @@ FavoritesPage/
 
 HomePage/
 
-- redux/
+--redux/
 
 catalog/
 
@@ -96,14 +96,14 @@ images/
 
 store.js
 
-- services/
+--services/
 
 api.js
 
-- App.jsx
-- index.css
-- main.jsx
-- i18n.js
+--App.jsx
+--index.css
+--main.jsx
+--i18n.js
 
 ## Компоненти
 
