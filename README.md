@@ -56,7 +56,7 @@ src/
 │ ├── Home/
 │ ├── Layout/
 │ ├── Loader/
-│ ├── Modal/
+│ ├── AdvertModal/
 │ ├── Navigation/
 │ └── SearchBox/
 │
@@ -121,7 +121,7 @@ Defines the main layout, including navigation.
 
 Displays a loading spinner.
 
-# Modal
+# AdvertModal
 
 Displays detailed information about a selected car in a modal.
 

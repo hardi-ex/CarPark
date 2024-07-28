@@ -56,7 +56,7 @@ src/
 │ ├── Home/
 │ ├── Layout/
 │ ├── Loader/
-│ ├── Modal/
+│ ├── AdvertModal/
 │ ├── Navigation/
 │ └── SearchBox/
 │
@@ -121,7 +121,7 @@ Displays the 'Call' button animation as a navigation element.
 
 Відображає індикатор завантаження.
 
-# Modal
+# AdvertModal
 
 Відображає детальну інформацію про вибраний автомобіль у модальному вікні.
 

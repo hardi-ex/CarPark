@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/favorites/selectors";
 import Advert from "../Advert/Advert";
-import Modal from "../Modal/Modal";
+import DetailsModal from "../DetailsModal/DetailsModal";
 import { useTranslation } from "react-i18next";
 import css from "./Favorites.module.css";
 
@@ -36,7 +36,7 @@ export const Favorites = () => {
       )}
 
       {selectedAdvert && (
-        <Modal
+        <DetailsModal
           isOpen={!!selectedAdvert}
           onRequestClose={closeModal}
           advert={selectedAdvert}

@@ -7,7 +7,7 @@ import {
 } from "../../redux/catalog/selectors";
 import { setPage, setFilters } from "../../redux/catalog/slice";
 import Advert from "../Advert/Advert";
-import Modal from "../Modal/Modal";
+import DetailsModal from "../DetailsModal/DetailsModal";
 import Loader from "../Loader/Loader";
 import css from "./AdvertList.module.css";
 import { useTranslation } from "react-i18next";
@@ -56,7 +56,7 @@ export const AdvertList = ({ filters }) => {
         </>
       )}
       {selectedAdvert && (
-        <Modal
+        <DetailsModal
           isOpen={!!selectedAdvert}
           onRequestClose={closeModal}
           advert={selectedAdvert}

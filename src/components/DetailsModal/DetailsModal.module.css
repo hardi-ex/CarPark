@@ -28,7 +28,7 @@
 .imageWrapper {
   margin: 0 auto;
   width: 450px;
-  height: 200px;
+  height: 224px;
   background-color: var(--dark-gray);
   border-radius: 10px;
   overflow: hidden;
@@ -36,7 +36,7 @@
 
 .svgCar {
   width: 450px;
-  height: 200px;
+  height: 225px;
   border-radius: 10px;
   object-fit: cover;
   object-position: center;
@@ -105,6 +105,8 @@
     width: 450px;
     min-height: 550px;
     padding: 20px;
+    max-height: calc(100vh - 97px);
+    overflow-y: auto;
   }
 
   .title {
@@ -134,11 +136,20 @@
   .imageWrapper {
     width: 350px;
     height: 150px;
+    min-height: 150px;
   }
 
   .svgCar {
     width: 350px;
     height: 150px;
+    min-height: 150px;
+  }
+
+  .btnRent {
+    width: 140px;
+    height: 40px;
+    min-height: 40px;
+    font-size: 14px;
   }
 
   .closeButton {
@@ -153,6 +164,9 @@
     min-height: 250px;
     top: calc(50% + 50px);
     left: 50%;
+    margin-top: 20px;
+    max-height: calc(100vh - 97px);
+    overflow-y: auto;
   }
 
   .title {
@@ -181,12 +195,14 @@
 
   .imageWrapper {
     width: 350px;
-    height: 150px;
+    height: 175px;
+    min-height: 175px;
   }
 
   .svgCar {
     width: 350px;
-    height: 150px;
+    height: 175px;
+    min-height: 175px;
   }
 
   .closeButton {
@@ -197,6 +213,7 @@
   .btnRent {
     width: 140px;
     height: 40px;
+    min-height: 40px;
     font-size: 14px;
   }
 }
@@ -207,6 +224,9 @@
     min-height: 250px;
     top: calc(50% + 50px);
     left: 50%;
+    margin-top: 20px;
+    max-height: calc(100vh - 97px);
+    overflow-y: auto;
   }
 
   .title {
@@ -235,12 +255,14 @@
 
   .imageWrapper {
     width: 280px;
-    height: 120px;
+    height: 140px;
+    min-height: 140px;
   }
 
   .svgCar {
     width: 280px;
-    height: 120px;
+    height: 140px;
+    min-height: 140px;
   }
 
   .closeButton {
@@ -258,19 +280,24 @@
 @media (max-width: 424px) {
   .modalContent {
     width: 280px;
+    margin-top: 20px;
+    max-height: calc(100vh - 97px);
+    overflow-y: auto;
   }
 
   .imageWrapper {
     width: 230px;
-    height: 120px;
+    height: 125px;
+    min-height: 125px;
   }
 
   .svgCar {
     width: 230px;
-    height: 120px;
+    height: 125px;
+    min-height: 125px;
   }
 
   .closeButton {
-    right: 2px;
+    right: -1px;
   }
 }

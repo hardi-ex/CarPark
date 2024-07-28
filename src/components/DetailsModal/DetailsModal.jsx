@@ -1,13 +1,13 @@
 import ReactModal from "react-modal";
 import { useTranslation } from "react-i18next";
 ReactModal.setAppElement("#root");
-import css from "./Modal.module.css";
+import css from "./DetailsModal.module.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useEffect } from "react";
 import { Icon } from "../Icon/Icon";
 
-const Modal = ({ isOpen, onRequestClose, advert }) => {
+const DetailsModal = ({ isOpen, onRequestClose, advert }) => {
   const { t } = useTranslation();
   const {
     year,
@@ -127,4 +127,4 @@ const Modal = ({ isOpen, onRequestClose, advert }) => {
   );
 };
 
-export default Modal;
+export default DetailsModal;
