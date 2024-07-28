@@ -44,44 +44,66 @@ CarPark — це веб-застосунок, розроблений для се
 
 ## Структура проекту
 
-src/
-│
-├── components/
-│ ├── Advert/
-│ ├── AdvertList/
-│ ├── AnimatedFab/
-│ ├── Catalog/
-│ ├── CustomSelect/
-│ ├── Favorites/
-│ ├── Home/
-│ ├── Layout/
-│ ├── Loader/
-│ ├── AdvertModal/
-│ ├── Navigation/
-│ └── SearchBox/
-│
-├── data/
-│ └── makes.json
-│
-├── pages/
-│ ├── CatalogPage/
-│ ├── FavoritesPage/
-│ └── HomePage/
-│
-├── redux/
-│ ├── catalog/
-│ ├── favorites/
-│ ├── filters/
-│ ├── images/
-│ └── store.js
-│
-├── services/
-│ └── api.js
-│
-├── App.jsx
-├── index.css
-├── main.jsx
-└── i18n.js
+- src/
+
+ - components/
+
+Advert/
+
+AdvertList/
+
+AnimatedFab/
+
+Catalog/
+
+CustomSelect/
+
+Favorites/
+
+Home/
+
+Layout/
+
+Loader/
+
+AdvertModal/
+
+Navigation/
+
+SearchBox/
+
+- data/
+
+makes.json
+
+- pages/
+
+CatalogPage/
+
+FavoritesPage/
+
+HomePage/
+
+- redux/
+
+catalog/
+
+favorites/
+
+filters/
+
+images/
+
+store.js
+
+- services/
+
+api.js
+
+- App.jsx
+- index.css
+- main.jsx
+- i18n.js
 
 ## Компоненти
 
